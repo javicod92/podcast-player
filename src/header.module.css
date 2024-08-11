@@ -1,0 +1,40 @@
+.nav_bar {
+  width: 100%;
+  height: var(--nav-guide-height);
+  border-bottom: 1px solid var(--border-color-gray);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.bar_left_content {
+  height: 100%;
+  width: var(--left-content-width);
+  /* border: 1px solid var(--border-color-gray); */
+  padding-left: 16px;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 16px;
+}
+
+.bar_icon_btn {
+  border-radius: 50%;
+  padding: 6px;
+  background: none;
+  border: none;
+  line-height: 0;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.bar_icon_btn:hover {
+  background: var(--bg-color-hover);
+  border: none;
+}
+
+.bar_home_btn {
+  display: flex;
+  place-content: center;
+}
