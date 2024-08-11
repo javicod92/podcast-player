@@ -1,4 +1,4 @@
-.nav_bar {
+.top_bar {
   width: 100%;
   height: var(--nav-guide-height);
   border-bottom: 1px solid var(--border-color-gray);
@@ -11,8 +11,8 @@
 .bar_left_content {
   height: 100%;
   width: var(--left-content-width);
-  /* border: 1px solid var(--border-color-gray); */
-  padding-left: 16px;
+  border: 1px solid var(--border-color-gray);
+  padding-left: 18px;
   display: flex;
   align-items: center;
   flex-shrink: 0;
@@ -35,6 +35,5 @@
 }
 
 .bar_home_btn {
-  display: flex;
-  place-content: center;
+  line-height: 0;
 }
