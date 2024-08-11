@@ -82,6 +82,6 @@ body {
   height: 100%;
   background: blue;
   border: solid 4px white;
-  display: grid;
-  grid-template-columns: 1fr minmax(0, var(--max-content-width)) 1fr;
+  display: flex;
+  flex-direction: column;
 }
