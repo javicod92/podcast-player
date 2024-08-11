@@ -25,6 +25,12 @@
   --input-background: #282828CC;
   --input-focused-text: #ffffff;
   --input-placeholder-text: #595656;
+
+  /* Nav Bar styles */
+  --vertical-guide-height: 248px;
+
+  /* Menú Items styles */
+  --mi-focused-color: #282828;
 }
 
 * {
