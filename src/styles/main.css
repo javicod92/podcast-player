@@ -1,23 +1,30 @@
 :root {
-  /* Background Colors: */
+  /* Global background Colors: */
   --bg-color-dark: #0C090B;
   --bg-color-hover: #1f1f1f;
 
-  /* Letter colors */
+  /* Global letter colors */
   --ltr-color-white: #ffffff;
   --ltr-color-black: #000000;
 
-  /* Border colors */
+  /* Global border colors */
   --border-color-gray: rgba(255, 255, 255, .15);
 
   /* Progress bar colors */
   --color-red: #FF0000;
 
-  /* navigation bar */
-  --nav-guide-height: 64px;
+  /* General navigation bar */
+  --nav-guide-height: 96px;
+  --nav-bg-dark: #0C090B;
 
   /* navigation left content */
   --left-content-width: 232px;
+
+  /* Search input */
+  --input-border: 1px solid #FFFFFF80;
+  --input-background: #282828CC;
+  --input-focused-text: #ffffff;
+  --input-placeholder-text: #595656;
 }
 
 * {
@@ -38,4 +45,8 @@ html {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  height: 2000px;
 }
