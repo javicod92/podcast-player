@@ -1,8 +1,10 @@
 .nav_container {
   position: fixed;
-  border-right: solid .5px var(--border-color-gray);
+  border-right: solid 1px var(--border-color-gray);
   width: 88px;
   height: calc(100vh - var(--nav-guide-height));
   top: var(--nav-guide-height);
   left: 0;
+  background: var(--nav-bg-dark);
+  z-index: 5;
 }
