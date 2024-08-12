@@ -1,0 +1,14 @@
+.paragrap {
+  font-size: 12px;
+  font-weight: 400;
+  padding: 6px 16px;
+  width: min-content;
+  height: min-content;
+  background: #282828;
+  border-radius: 8px;
+}
+
+.selected {
+  background: #FFFFFF;
+  color: #282828;
+}
