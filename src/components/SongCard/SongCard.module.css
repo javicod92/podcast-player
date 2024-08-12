@@ -1,0 +1,40 @@
+.songCard_container {
+  width: max-content;
+  height: max-content;
+  display: flex;
+  gap: 8px;
+}
+
+.artist_image {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+}
+
+.artist_description {
+  height: auto;
+  width: 500px;
+  /* background: aqua; */
+  display: flex;
+  justify-content: space-between;
+}
+
+.description_text {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  gap: 2px;
+}
+
+.songTitle {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.artistName {
+  font-size: 16px;
+  font-weight: 400;
+}
