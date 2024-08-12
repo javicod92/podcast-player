@@ -2,24 +2,20 @@
   /* Global background Colors: */
   --bg-color-dark: #0C090B;
   --bg-color-hover: #1f1f1f;
-
   /* Global letter colors */
   --ltr-color-white: #ffffff;
   --ltr-color-black: #000000;
-
   /* Global border colors */
   --border-color-gray: rgba(255, 255, 255, .15);
 
   /* Progress bar colors */
   --color-red: #FF0000;
 
-  /* General navigation bar */
+  /* General Header bar */
   --nav-guide-height: 96px;
   --nav-bg-dark: #0C090B;
-
   /* navigation left content */
   --left-content-width: 232px;
-
   /* Search input */
   --input-border: 1px solid #FFFFFF80;
   --input-background: #282828CC;
@@ -64,24 +60,4 @@ body {
 #root {
   width: 100%;
   height: 100%;
-}
-
-.main_container {
-  height: 100%;
-  padding-top: var(--nav-guide-height);
-  padding-bottom: var(--nav-guide-bottom-height);
-}
-
-.main_content {
-  height: 100%;
-  margin-left: 88px;
-}
-
-.main_section {
-  width: 100%;
-  height: 100%;
-  background: blue;
-  border: solid 4px white;
-  display: flex;
-  flex-direction: column;
 }

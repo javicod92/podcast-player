@@ -1,0 +1,18 @@
+.navBar_container {
+  width: 88px;
+  height: calc(100vh - var(--nav-guide-height));
+  background: var(--nav-bg-dark);
+  border-right: 1px solid var(--border-color-gray);
+  position: fixed;
+  top: var(--nav-guide-height);
+  left: 0;
+}
+
+.compact_sidebar {
+  height: 248px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  Padding: 20px 12px;
+  gap: 4px;
+}
