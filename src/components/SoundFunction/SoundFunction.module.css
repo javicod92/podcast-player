@@ -1,0 +1,7 @@
+.function_container {
+  width: max-content;
+  height: max-content;
+  display: flex;
+  gap: 7px;
+  cursor: pointer;
+}

@@ -5,3 +5,7 @@
   align-items: center;
   gap: 8px;
 }
+
+.media_time {
+  font-size: 12px;
+}
