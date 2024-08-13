@@ -74,33 +74,33 @@ button {
 }
 
 input[type="range"] {
-  -webkit-appearance: none; /* Quita el estilo predeterminado en navegadores WebKit */
-  background: transparent; /* Hace transparente el fondo del track */
+  -webkit-appearance: none; 
+  background: transparent; 
 }
 
 input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none; /* Quita el estilo predeterminado del thumb */
+  -webkit-appearance: none; 
   appearance: none;
-  width: 15px; /* Ancho del thumb */
-  height: 15px; /* Altura del thumb */
-  background: #ff0000; /* Color de fondo del thumb (rojo en este caso) */
-  border-radius: 50%; /* Hace que el thumb sea circular */
+  width: 15px; 
+  height: 15px; 
+  background: #ff0000; 
+  border-radius: 50%; 
   cursor: pointer;
 }
 
 input[type="range"]::-moz-range-thumb {
   width: 15px;
   height: 15px;
-  background: #ff0000; /* Color de fondo del thumb */
-  border-radius: 50%; /* Hace que el thumb sea circular */
+  background: #ff0000; 
+  border-radius: 50%; 
   cursor: pointer;
 }
 
 input[type="range"]::-ms-thumb {
   width: 15px;
   height: 15px;
-  background: #ff0000; /* Color de fondo del thumb */
-  border-radius: 50%; /* Hace que el thumb sea circular */
+  background: #ff0000; 
+  border-radius: 50%; 
   cursor: pointer;
   border: none;
 }
