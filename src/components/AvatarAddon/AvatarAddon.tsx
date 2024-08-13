@@ -15,5 +15,13 @@ export default function AvatarAddon({ size = "avatar", imageUrl }: Props) {
       ? "medium"
       : "default";
 
-  return <img className={style[styleTarget]} src={imageUrl} alt="Foto del Perfil"/>;
+  return (
+    <button>
+      <img
+        className={style[styleTarget]}
+        src={imageUrl}
+        alt="Foto del Perfil"
+      />
+    </button>
+  );
 }

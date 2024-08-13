@@ -27,7 +27,9 @@ export default function Header() {
             ></input>
           </div>
           <div className={styles.user_content}>
-            <img src="/src/assets/static/svgs/cast.svg" alt="Cast" />
+            <button>
+              <img src="/src/assets/static/svgs/cast.svg" alt="Cast" />
+            </button>
             <AvatarAddon
               imageUrl="./src/assets/static/images/userAvatar/Avatar.png"
               size="default"
