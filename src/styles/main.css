@@ -42,7 +42,8 @@
 }
 
 html {
-  background: var(--bg-color-dark);
+  /* background: var(--bg-color-dark); */
+  background: linear-gradient(45deg, #0C090B, #181f18);
   color: var(--ltr-color-white);
   font-family: Roboto, Noto Naskh Arabic UI, Arial, sans-serif;
   line-height: 1.5;

@@ -1,14 +1,20 @@
-import styles from "./FiltersChip.module.css"
+import styles from "./FiltersChip.module.css";
 
 type Props = {
   text: string;
   isSelected: boolean;
-}
+};
 
-export default function FiltersChip (props: Props) {
+export default function FiltersChip(props: Props) {
   return (
-    <p className={`${styles.paragrap} ${styles[props.isSelected ? 'selected' : '']}`}>
-      {props.text}
-    </p>
-  )
+    <button className={styles.button_filter}>
+      <p
+        className={`${styles.paragrap} ${
+          styles[props.isSelected ? "selected" : ""]
+        }`}
+      >
+        {props.text}
+      </p>
+    </button>
+  );
 }

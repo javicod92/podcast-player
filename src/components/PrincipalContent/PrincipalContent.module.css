@@ -1,11 +1,31 @@
 .page_container {
-  background: blueviolet;
   width: 100%;
   height: 100%;
 }
 
-.page_borders {
+.page_border_top_bottom {
   width: 100%;
   height: 100%;
-  padding: 96px 0 72px 87px;
+  padding: 96px 0 72px 0;
+}
+
+.page_border_left {
+  width: auto;
+  height: 100%;
+  margin-left: 87px;
+  display: grid;
+  grid-template-columns: minmax(5rem, 1fr) minmax(0, 1470px) minmax(5rem, 1fr);
+}
+
+.page_main {
+  width: 100%;
+  height: 100%;
+  /* background: aqua; */
+  grid-column: 2 / 3;
+}
+
+.filter {
+  margin: 20px 0;
+  display: flex;
+  gap: 10px;
 }
