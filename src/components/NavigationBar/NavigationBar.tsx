@@ -16,7 +16,7 @@ export default function NavigationBar({ size = "compact" }: Props) {
         <div className={styles.compact_sidebar}>
           <MenuItem
             type="vertically"
-            iconUrl="/src/assets/static/svgs/other_houses.svg"
+            iconUrl="/src/assets/static/svgs/house.svg"
             isFocused={true}
           >
             Principal

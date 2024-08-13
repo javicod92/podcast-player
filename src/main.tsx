@@ -8,7 +8,7 @@ import PlaybackBar from "./components/PlaybackBar/PlaybackBar.tsx";
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.Fragment>
     <Header />
-    <NavigationBar size="compact"/>
+    <NavigationBar size="compact" />
     <PlaybackBar />
   </React.Fragment>
 );

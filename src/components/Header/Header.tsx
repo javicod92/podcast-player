@@ -10,7 +10,7 @@ export default function Header() {
           <img src="/src/assets/static/svgs/menu.svg" alt="Menu" />
         </button>
         <a href="#" id="home-page-button" className={styles.bar_home_btn}>
-          <OnPlatformLogo size="large"/>
+          <OnPlatformLogo size="large" />
         </a>
       </div>
 
