@@ -24,8 +24,6 @@
 .bar_icon_btn {
   border-radius: 50%;
   padding: 6px;
-  background: none;
-  border: none;
   line-height: 0;
   cursor: pointer;
   transition: background-color 0.2s ease;

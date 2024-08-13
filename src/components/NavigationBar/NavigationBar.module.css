@@ -4,6 +4,7 @@
   background: var(--nav-bg-dark);
   border-right: 1px solid var(--border-color-gray);
   position: fixed;
+  z-index: 4;
   top: var(--nav-guide-height);
   left: 0;
 }

@@ -8,11 +8,8 @@
   gap: 4px;
   font-size: 12px;
   font-weight: 400;
-  border: none;
-  background: none;
   border-radius: 8px;
-  color: inherit;
-  cursor: pointer;
+  line-height: 1.5;
 }
 
 .fucused {
