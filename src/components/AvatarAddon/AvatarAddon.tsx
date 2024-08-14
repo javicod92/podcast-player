@@ -5,7 +5,7 @@ type Props = {
   imageUrl: string;
 };
 
-export default function AvatarAddon({ size = "avatar", imageUrl }: Props) {
+export default function AvatarAddon({ size = "default", imageUrl }: Props) {
   const styleTarget =
     size === "avatar"
       ? "avatar"

@@ -50,3 +50,16 @@ export const FilterList = [
     isSelected: false,
   },
 ];
+
+export const ListenAgain = [
+  {
+    key: 1,
+    isAlbum: true,
+    imageSource: "src/assets/static/images/albumsImage/07e12ccaff200ac1214f42ac2c466f1a.png",
+    artist: "Various",
+    playlistName: "Top 100 Argentina",
+    songName: "none",
+    songs: 305,
+    views: 0,
+  }
+]

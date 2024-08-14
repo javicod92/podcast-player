@@ -29,3 +29,32 @@
   display: flex;
   gap: 10px;
 }
+
+.listenAgain_content {
+  width: 100%;
+  height: max-content;
+  margin: 40px 0 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.listenAgain_content_header {
+  width: 100%;
+  height: max-content;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.header_content_arrows {
+  display: flex;
+  gap: 8px;
+}
+
+.listenAgain_content_albums {
+  width: 100%;
+  height: max-content;
+  display: flex;
+  gap: 36px;
+}

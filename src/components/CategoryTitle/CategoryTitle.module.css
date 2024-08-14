@@ -1,0 +1,20 @@
+.CategoryTitle_container {
+  width: max-content;
+  height: max-content;
+  display: flex;
+  gap: 12px;
+}
+
+.text_content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.text_content p {
+  font-size: 16px;
+}
+
+.text_content h2 {
+  font-size: 22px;
+}
