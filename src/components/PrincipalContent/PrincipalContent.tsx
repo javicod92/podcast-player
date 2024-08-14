@@ -39,6 +39,7 @@ export default function PrincipalContent() {
                   ListenAgain.map(element => {
                     return (
                       <SongAlbum
+                      key={element.key}
                       isAlbum={element.isAlbum}
                       imageSource={element.imageSource}
                       artist={element.artist}
