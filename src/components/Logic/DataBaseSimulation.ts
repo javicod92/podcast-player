@@ -125,6 +125,36 @@ export const similarTo = [
     key: 1,
     imageUrl: "src/assets/static/images/albumsImage/Boris1.jpg",
     artist: "Boris Brejcha",
-    subscriberNumber: 10000,
+    subscriberNumber: 380000,
+  },
+  {
+    key: 2,
+    imageUrl: "src/assets/static/images/albumsImage/KyleWatson.jpg",
+    artist: "Kyle Watson",
+    subscriberNumber: 2500,
+  },
+  {
+    key: 3,
+    imageUrl: "src/assets/static/images/albumsImage/Hozo.jpg",
+    artist: "Hozo",
+    subscriberNumber: 2000000,
+  },
+  {
+    key: 4,
+    imageUrl: "src/assets/static/images/albumsImage/EnricoSangiuliano.jpg",
+    artist: "Enrico Sangiuliano",
+    subscriberNumber: 35000,
+  },
+  {
+    key: 5,
+    imageUrl: "src/assets/static/images/albumsImage/AmbientPino.jpg",
+    artist: "Ambient Pino",
+    subscriberNumber: 500,
+  },
+  {
+    key: 6,
+    imageUrl: "src/assets/static/images/albumsImage/bookaShade.jpg",
+    artist: "Booka Shade",
+    subscriberNumber: 50000,
   },
 ];
