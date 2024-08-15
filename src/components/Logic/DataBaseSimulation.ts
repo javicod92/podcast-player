@@ -157,4 +157,10 @@ export const similarTo = [
     artist: "Booka Shade",
     subscriberNumber: 50000,
   },
+  {
+    key: 7,
+    imageUrl: "src/assets/static/images/albumsImage/ARTBAT.jpg",
+    artist: "ARTBAT",
+    subscriberNumber: 12000,
+  },
 ];
