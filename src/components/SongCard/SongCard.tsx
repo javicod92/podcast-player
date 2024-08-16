@@ -11,10 +11,6 @@ type Props = {
   likes: number;
 };
 
-SongCard.defaultProps = {
-  size: "default",
-};
-
 export default function SongCard(props: Props) {
   return (
     <div

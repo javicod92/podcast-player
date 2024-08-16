@@ -164,3 +164,15 @@ export const similarTo = [
     subscriberNumber: 12000,
   },
 ];
+
+export const quickPicks = [
+  {
+    key: 1,
+    size: "small",
+    imageUrl: "src/assets/static/images/albumsImage/KREAM-Pressure.jpg",
+    artist: "KREAM",
+    songTitle: "Pressure",
+    views: 5000,
+    likes: 3000,
+  },
+]

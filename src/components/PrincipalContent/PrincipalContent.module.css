@@ -34,17 +34,19 @@
 }
 
 .listenAgain_content,
-.similarTo_container {
+.similarTo_container,
+.quickPicks_container {
   width: 100%;
   height: max-content;
   display: flex;
   flex-direction: column;
   gap: 25px;
-  margin-bottom: 50px;
+  margin-bottom: 80px;
 }
 
 .listenAgain_content_header,
-.similarTo_content_header {
+.similarTo_content_header,
+.quickPicks_content_header {
   width: 100%;
   height: max-content;
   display: flex;
@@ -64,4 +66,12 @@
   display: flex;
   gap: 25px;
   overflow: hidden;
+}
+
+.quickPicks_songCards {
+  width: 100%;
+  height: max-content;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
 }

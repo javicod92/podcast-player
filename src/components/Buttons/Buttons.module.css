@@ -1,0 +1,17 @@
+.button_container {
+  padding: 8px 22px;
+  border: solid 1px white;
+  border-radius: 51px;
+  margin-right: 5rem;
+}
+
+.info_container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.info_container p {
+  font-size: 12px;
+  font-weight: 400;
+}
