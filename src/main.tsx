@@ -11,7 +11,7 @@ type Props = {
   children: ReactNode;
 }
 
-function Layaut (props: Props) {
+function Layout (props: Props) {
   return (
     <>
       <Header />
@@ -23,10 +23,10 @@ function Layaut (props: Props) {
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.Fragment>
-    <Layaut >
+    <Layout >
       <PlaybackBar />
       <PrincipalContent />
-    </Layaut>
+    </Layout>
   </React.Fragment>
       
 );

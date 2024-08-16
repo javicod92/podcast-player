@@ -66,7 +66,14 @@
   height: max-content;
   display: flex;
   gap: 25px;
-  overflow: hidden;
+  overflow-x: scroll;
+  scrollbar-color: transparent transparent;
+  /* scrollbar-width: thin; */
+}
+
+.listenAgain_content_albums:hover,
+.artistContainer:hover {
+  scrollbar-color: #606060 transparent;
 }
 
 .quickPicks_songCards {
