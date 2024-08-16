@@ -1,8 +1,23 @@
-.songCard_container {
-  width: max-content;
+.songCard_container_default,
+.songCard_container_medium,
+.songCard_container_large
+{
   height: max-content;
   display: flex;
   gap: 8px;
+  overflow: hidden;
+}
+
+.songCard_container_default {
+  width: 254px;
+}
+
+.songCard_container_medium {
+  width: 348px;
+}
+
+.songCard_container_large {
+  width: 550px;
 }
 
 .artist_image {
@@ -13,21 +28,21 @@
 
 .artist_description {
   height: auto;
-  width: 500px;
-  /* background: aqua; */
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .description_text {
-  width: 100%;
+  width: min-content;
   height: auto;
   display: flex;
   flex-direction: column;
   align-content: center;
   justify-content: center;
   gap: 2px;
+  text-wrap: nowrap;
 }
 
 .songTitle {
@@ -35,7 +50,7 @@
   font-weight: 600;
 }
 
-.artistName {
+.artistDescription {
   font-size: 16px;
   font-weight: 400;
 }

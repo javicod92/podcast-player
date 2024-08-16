@@ -11,6 +11,7 @@ export default function PlaybackBar() {
         <ProgressBar />
         <MediaControls />
         <SongCard
+          size="large"
           songTitle="Can't Stop the Feeling!"
           artist="Calvin Harris"
           views={37000}
