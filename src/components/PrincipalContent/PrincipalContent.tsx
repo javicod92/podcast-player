@@ -110,6 +110,18 @@ export default function PrincipalContent() {
                 }
               </div>
             </section>
+            <section id="recommendedAlbums" className={styles.recommendedAlbums_container}>
+            <div className={styles.quickPicks_content_header}>
+                <CategoryTitle
+                  primaryText="Start Radio From Songs"
+                  secondaryText="Quick Picks"
+                />
+                <div className={styles.header_content_arrows}>
+                  <ArrowLeft isSelected={false} />
+                  <ArrowRight isSelected />
+                </div>
+              </div>
+            </section>
           </div>
         </div>
       </div>

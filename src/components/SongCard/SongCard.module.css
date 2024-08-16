@@ -6,11 +6,11 @@
   display: flex;
   gap: 8px;
   overflow: hidden;
-  cursor: pointer;
 }
 
 .songCard_container_default {
   width: 254px;
+  cursor: pointer;
 }
 
 .songCard_container_medium {

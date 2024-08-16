@@ -35,7 +35,8 @@
 
 .listenAgain_content,
 .similarTo_container,
-.quickPicks_container {
+.quickPicks_container,
+.recommendedAlbums_container {
   width: 100%;
   height: max-content;
   display: flex;
