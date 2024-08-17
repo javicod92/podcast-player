@@ -118,6 +118,26 @@ export const ListenAgain = [
     songs: 12,
     views: 0,
   },
+  {
+    key: 7,
+    isAlbum: false,
+    imageSource: "src/assets/static/images/albumsImage/THR3MIND-Bumblebee.jpg",
+    artist: "THR3MIND",
+    playlistName: "Hybrid Theory",
+    songName: "Bumblebee",
+    songs: 12,
+    views: 170000,
+  },
+  {
+    key: 8,
+    isAlbum: true,
+    imageSource: "src/assets/static/images/albumsImage/FREYA-Ruback.jpg",
+    artist: "FREYA",
+    playlistName: "Ruback",
+    songName: "none",
+    songs: 18,
+    views: 1700,
+  },
 ];
 
 export const similarTo = [
@@ -169,6 +189,13 @@ export const similarTo = [
     isAlbum: false,
     artist: "ARTBAT",
     subscriberNumber: 12000,
+  },
+  {
+    key: 8,
+    imageUrl: "src/assets/static/images/albumsImage/THR3MIND-Bumblebee.jpg",
+    isAlbum: false,
+    artist: "THR3MIND",
+    subscriberNumber: 22000,
   },
 ];
 
@@ -383,5 +410,13 @@ export const recomendedAlbums = [
     artist: "Purple Disco Machine",
     playlistName: "Exotica",
     subscriberNumber: 12000,
+  },
+  {
+    key: 8,
+    imageUrl: "src/assets/static/images/albumsImage/FREYA-Ruback.jpg",
+    isAlbum: true,
+    artist: "FREYA",
+    playlistName: "Ruback",
+    subscriberNumber: 1500,
   },
 ];
