@@ -5,7 +5,7 @@ import {
   ListenAgain,
   similarTo,
   quickPicks,
-  recomendedAlbums
+  recomendedAlbums,
 } from "../Logic/DataBaseSimulation";
 import CategoryTitle from "../CategoryTitle/CategoryTitle";
 import ArrowLeft from "../ArrowContent/ArrowLeft";

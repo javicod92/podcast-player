@@ -9,24 +9,23 @@ import PrincipalContent from "./components/PrincipalContent/PrincipalContent.tsx
 
 type Props = {
   children: ReactNode;
-}
+};
 
-function Layout (props: Props) {
+function Layout(props: Props) {
   return (
     <>
       <Header />
       <NavigationBar size="compact" />
       {props.children}
     </>
-  )
+  );
 }
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.Fragment>
-    <Layout >
+    <Layout>
       <PlaybackBar />
       <PrincipalContent />
     </Layout>
   </React.Fragment>
-      
 );

@@ -185,7 +185,8 @@ export const quickPicks = [
   {
     key: 2,
     size: "small",
-    imageUrl: "src/assets/static/images/albumsImage/07e12ccaff200ac1214f42ac2c466f1a.png",
+    imageUrl:
+      "src/assets/static/images/albumsImage/07e12ccaff200ac1214f42ac2c466f1a.png",
     artist: "RYAN JONES",
     songTitle: "Pain",
     views: 270000,
@@ -203,7 +204,8 @@ export const quickPicks = [
   {
     key: 4,
     size: "small",
-    imageUrl: "src/assets/static/images/albumsImage/58b9b28e29d52bd7f484b799db3341f6.png",
+    imageUrl:
+      "src/assets/static/images/albumsImage/58b9b28e29d52bd7f484b799db3341f6.png",
     artist: "The Weeknd",
     songTitle: "Starboy",
     views: 25000000,
@@ -212,7 +214,8 @@ export const quickPicks = [
   {
     key: 5,
     size: "small",
-    imageUrl: "src/assets/static/images/albumsImage/758c2683a632d5521796b21be90d9541.png",
+    imageUrl:
+      "src/assets/static/images/albumsImage/758c2683a632d5521796b21be90d9541.png",
     artist: "Ania Szarmach",
     songTitle: "Shades of Love",
     views: 3000,
@@ -275,7 +278,8 @@ export const quickPicks = [
   {
     key: 12,
     size: "small",
-    imageUrl: "src/assets/static/images/albumsImage/InTheDark-PurpleDiscoMachine.jpg",
+    imageUrl:
+      "src/assets/static/images/albumsImage/InTheDark-PurpleDiscoMachine.jpg",
     artist: "Purple Disco Machine",
     songTitle: "In the Dark",
     views: 270000,
@@ -317,12 +321,13 @@ export const quickPicks = [
     views: 27000000,
     likes: 12000,
   },
-]
+];
 
 export const recomendedAlbums = [
   {
     key: 1,
-    imageUrl: "src/assets/static/images/albumsImage/3b02630be867dbdbd629e9d32572a9b5.png",
+    imageUrl:
+      "src/assets/static/images/albumsImage/3b02630be867dbdbd629e9d32572a9b5.png",
     isAlbum: true,
     artist: "Calvin Harris",
     playlistName: "Can't Stop the Feeling!",
@@ -330,7 +335,8 @@ export const recomendedAlbums = [
   },
   {
     key: 2,
-    imageUrl: "src/assets/static/images/albumsImage/43e62ad21860d99cd29386c472e3d49a.png",
+    imageUrl:
+      "src/assets/static/images/albumsImage/43e62ad21860d99cd29386c472e3d49a.png",
     isAlbum: true,
     artist: "Various",
     playlistName: "Deep City Electro Collection",
@@ -338,7 +344,8 @@ export const recomendedAlbums = [
   },
   {
     key: 3,
-    imageUrl: "src/assets/static/images/albumsImage/758c2683a632d5521796b21be90d9541.png",
+    imageUrl:
+      "src/assets/static/images/albumsImage/758c2683a632d5521796b21be90d9541.png",
     isAlbum: true,
     artist: "Ania Szarmach",
     playlistName: "Shades of Love",
@@ -370,7 +377,8 @@ export const recomendedAlbums = [
   },
   {
     key: 7,
-    imageUrl: "src/assets/static/images/albumsImage/InTheDark-PurpleDiscoMachine.jpg",
+    imageUrl:
+      "src/assets/static/images/albumsImage/InTheDark-PurpleDiscoMachine.jpg",
     isAlbum: true,
     artist: "Purple Disco Machine",
     playlistName: "Exotica",
