@@ -101,6 +101,7 @@ export default function PrincipalContent() {
                 {quickPicks.map((element) => {
                   return (
                     <SongCard
+                      key={element.key}
                       size={element.size}
                       imageUrl={element.imageUrl}
                       songTitle={element.songTitle}

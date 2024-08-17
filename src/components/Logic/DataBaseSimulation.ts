@@ -313,7 +313,7 @@ export const quickPicks = [
     likes: 270000,
   },
   {
-    key: 12,
+    key: 16,
     size: "small",
     imageUrl: "src/assets/static/images/albumsImage/Lastlings-NoTime.jpg",
     artist: "Lastlings",
