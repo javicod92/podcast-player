@@ -1,6 +1,12 @@
 import styles from "./PrincipalContent.module.css";
 import FiltersChip from "../FiltersChip/FiltersChip";
-import { FilterList, ListenAgain, similarTo, quickPicks } from "../Logic/DataBaseSimulation";
+import {
+  FilterList,
+  ListenAgain,
+  similarTo,
+  quickPicks,
+  recomendedAlbums
+} from "../Logic/DataBaseSimulation";
 import CategoryTitle from "../CategoryTitle/CategoryTitle";
 import ArrowLeft from "../ArrowContent/ArrowLeft";
 import ArrowRight from "../ArrowContent/ArrowRight";
@@ -8,7 +14,6 @@ import SongAlbum from "../SongAlbum/SongAlbum";
 import ArtistProfile from "../ArtistProfile/ArtistProfile";
 import Buttons from "../Buttons/Buttons";
 import SongCard from "../SongCard/SongCard";
-
 
 export default function PrincipalContent() {
   return (
@@ -67,59 +72,73 @@ export default function PrincipalContent() {
                 </div>
               </div>
               <div className={styles.artistContainer}>
-                {
-                  similarTo.map(element => {
-                    return (
-                      <ArtistProfile 
+                {similarTo.map((element) => {
+                  return (
+                    <ArtistProfile
                       key={element.key}
+                      isAlbum={element.isAlbum}
                       imageUrl={element.imageUrl}
                       artist={element.artist}
                       subscriberNumber={element.subscriberNumber}
-                      />
-                    )
-                  })
-                }
+                    />
+                  );
+                })}
               </div>
             </section>
             <section id="quickPicks" className={styles.quickPicks_container}>
-            <div className={styles.quickPicks_content_header}>
+              <div className={styles.quickPicks_content_header}>
                 <CategoryTitle
                   primaryText="Start Radio From Songs"
                   secondaryText="Quick Picks"
                 />
                 <div className={styles.header_content_arrows}>
-                  <Buttons text="Play All"/>
+                  <Buttons text="Play All" />
                   <ArrowLeft isSelected={false} />
                   <ArrowRight isSelected />
                 </div>
               </div>
               <div className={styles.quickPicks_songCards}>
-                {
-                  quickPicks.map(element => {
-                    return (
-                      <SongCard 
-                        size={element.size}
-                        imageUrl={element.imageUrl}
-                        songTitle={element.songTitle}
-                        artist={element.artist}
-                        views={element.views}
-                        likes={element.likes}
-                      />
-                    )
-                  })
-                }
+                {quickPicks.map((element) => {
+                  return (
+                    <SongCard
+                      size={element.size}
+                      imageUrl={element.imageUrl}
+                      songTitle={element.songTitle}
+                      artist={element.artist}
+                      views={element.views}
+                      likes={element.likes}
+                    />
+                  );
+                })}
               </div>
             </section>
-            <section id="recommendedAlbums" className={styles.recommendedAlbums_container}>
-            <div className={styles.quickPicks_content_header}>
+            <section
+              id="recommendedAlbums"
+              className={styles.recommendedAlbums_container}
+            >
+              <div className={styles.quickPicks_content_header}>
                 <CategoryTitle
-                  primaryText="Start Radio From Songs"
-                  secondaryText="Quick Picks"
+                  primaryText=""
+                  secondaryText="Recomended Albums"
                 />
                 <div className={styles.header_content_arrows}>
                   <ArrowLeft isSelected={false} />
                   <ArrowRight isSelected />
                 </div>
+              </div>
+              <div className={styles.recommendedAlbums}>
+                {recomendedAlbums.map((element) => {
+                  return (
+                    <ArtistProfile
+                      key={element.key}
+                      isAlbum={element.isAlbum}
+                      imageUrl={element.imageUrl}
+                      artist={element.artist}
+                      playlistName={element.playlistName}
+                      subscriberNumber={element.subscriberNumber}
+                    />
+                  );
+                })}
               </div>
             </section>
           </div>

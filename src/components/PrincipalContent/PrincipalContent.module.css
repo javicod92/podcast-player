@@ -42,7 +42,7 @@
   display: flex;
   flex-direction: column;
   gap: 25px;
-  margin-bottom: 80px;
+  margin-bottom: 40px;
 }
 
 .listenAgain_content_header,
@@ -61,7 +61,8 @@
 }
 
 .listenAgain_content_albums,
-.artistContainer {
+.artistContainer,
+.recommendedAlbums {
   width: 100%;
   height: max-content;
   display: flex;
@@ -72,7 +73,8 @@
 }
 
 .listenAgain_content_albums:hover,
-.artistContainer:hover {
+.artistContainer:hover,
+.recommendedAlbums:hover {
   scrollbar-color: #606060 transparent;
 }
 
