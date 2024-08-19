@@ -1,4 +1,4 @@
-import styles from "./NavigationBar.module.css";
+import styles from "./SideBar.module.css";
 import MenuItem from "../MenuItem/MenuItem.tsx";
 
 type Props = {
@@ -6,7 +6,7 @@ type Props = {
 };
 
 //This functun accepts "compact" and "spanded" parameters
-export default function NavigationBar({ size = "compact" }: Props) {
+export default function SideBar({ size = "compact" }: Props) {
   const sizeTarget =
     size === "compact" ? "compact" : size === "spanded" ? "spanded" : "compact";
 
