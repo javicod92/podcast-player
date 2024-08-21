@@ -1,24 +1,16 @@
-import style from "./AvatarAddon.module.css";
+import styles from "./AvatarAddon.module.css";
 
 type Props = {
-  size: string;
+  size: "avatar" | "small" | "medium" | "default";
   imageUrl: string;
 };
 
 export default function AvatarAddon({ size = "default", imageUrl }: Props) {
-  const styleTarget =
-    size === "avatar"
-      ? "avatar"
-      : size === "small"
-      ? "small"
-      : size === "medium"
-      ? "medium"
-      : "default";
-
+  
   return (
     <button>
       <img
-        className={style[styleTarget]}
+        className={styles[size]}
         src={imageUrl}
         alt="Foto del Perfil"
       />

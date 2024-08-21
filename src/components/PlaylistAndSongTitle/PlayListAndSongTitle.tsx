@@ -1,7 +1,6 @@
 import styles from "./PlayListAndSongTitle.module.css"
 import convertNumber from "../Logic/convertNumber.ts"
 
-
 type Props = {
   isAlbum: boolean;
   artist: string;
@@ -22,12 +21,12 @@ export default function PlayListAndSongTitle (props: Props) {
         <p>{`${props.artist} • ${transformTotalSongs} songs`}</p>
       </div>
     )
-  } else {
-    return (
-      <div className={styles.albumTitle_container}>
-        <h2>{props.songName}</h2>
-        <p>{`${props.artist} • ${transformTotalViews} views`}</p>
-      </div>
-    )
-  }
+  } 
+
+  return (
+    <div className={styles.albumTitle_container}>
+      <h2>{props.songName}</h2>
+      <p>{`${props.artist} • ${transformTotalViews} views`}</p>
+    </div>
+  )
 }

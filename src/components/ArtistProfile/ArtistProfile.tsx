@@ -26,7 +26,7 @@ export default function ArtistProfile(props: Props) {
             : styles.description_container_artist
         }
       >
-        {props.isAlbum || (
+        {!props.isAlbum && (
           <>
             <p className={styles.font_bold}>{props.artist}</p>
             <p className={styles.font_normal}>
