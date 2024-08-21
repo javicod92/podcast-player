@@ -1,4 +1,4 @@
-.vertically_button_container {
+/* .vertically_button_container {
   width: 100%;
   height: 100%;
   display: flex;
@@ -14,4 +14,70 @@
 
 .fucused {
   background-color: var(--mi-focused-color);
+} */
+
+/* Styles for vertically buttom */
+.vertically_button_container {
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.5;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 14px;
+  border-radius: 8px;
+}
+
+.vertically_button_container div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.vertically_button_container div h2 {
+  font-size: 10px;
+  font-weight: 400;
+}
+
+.vertically_button_container div p {
+  font-size: 10px;
+  font-weight: 400;
+}
+
+.isSelected {
+  background-color: var(--mi-focused-color);
+}
+
+/* Styles for horizontally buttom */
+.horizontally_button_container {
+  width: auto;
+  height: auto;
+  display: flex;
+  line-height: 1.5;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+.horizontally_button_container div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.horizontally_button_container div h2 {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.horizontally_button_container div p {
+  font-size: 12px;
+  font-weight: 400;
 }

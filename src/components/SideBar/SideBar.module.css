@@ -1,5 +1,6 @@
 .navBar_container {
   width: 88px;
+  /* width: 232px; */
   height: calc(100vh - var(--nav-guide-height));
   background: var(--nav-bg-dark);
   border-right: 1px solid var(--border-color-gray);

@@ -14,27 +14,9 @@ export default function SideBar({ size = "compact" }: Props) {
     return (
       <div className={styles.navBar_container}>
         <div className={styles.compact_sidebar}>
-          <MenuItem
-            type="vertically"
-            iconUrl="/src/assets/static/svgs/house.svg"
-            isFocused={true}
-          >
-            Principal
-          </MenuItem>
-          <MenuItem
-            type="vertically"
-            iconUrl="/src/assets/static/svgs/explore.svg"
-            isFocused={false}
-          >
-            Explorar
-          </MenuItem>
-          <MenuItem
-            type="vertically"
-            iconUrl="/src/assets/static/svgs/library_music.svg"
-            isFocused={false}
-          >
-            Biblioteca
-          </MenuItem>
+          <MenuItem primarytext="Principal" buttonSize={"vertical"} leftIconUrl="src/assets/static/svgs/house.svg" isSelected/>
+          <MenuItem primarytext="Explorar" buttonSize={"vertical"} leftIconUrl="src/assets/static/svgs/explore.svg"/>
+          <MenuItem primarytext="Biblioteca" buttonSize={"vertical"} leftIconUrl="src/assets/static/svgs/library_music.svg"/>
         </div>
       </div>
     );
