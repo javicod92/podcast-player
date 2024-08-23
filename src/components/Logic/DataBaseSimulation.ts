@@ -420,3 +420,46 @@ export const recomendedAlbums = [
     subscriberNumber: 1500,
   },
 ];
+
+export const userPlaylist = [
+  {
+    key: 1,
+    playlistName: "Top 100 Argentina",
+    createdBy: "Autoplaylist"
+  },
+  {
+    key: 2,
+    playlistName: "Top 50 Internacionales",
+    createdBy: "Autoplaylist"
+  },
+  {
+    key: 3,
+    playlistName: "Best Melodic Techno",
+    createdBy: "Autoplaylist"
+  },
+  {
+    key: 4,
+    playlistName: "Top 10 Boris Brejcha",
+    createdBy: "Autoplaylist"
+  },
+  {
+    key: 5,
+    playlistName: "Can't Stop the Feeling!",
+    createdBy: "Autoplaylist"
+  },
+  {
+    key: 6,
+    playlistName: "Enrico Sangiuliano",
+    createdBy: "Autoplaylist"
+  },
+  {
+    key: 7,
+    playlistName: "Demon Days",
+    createdBy: "Autoplaylist"
+  },
+  {
+    key: 8,
+    playlistName: "Deep City Electronic",
+    createdBy: "Autoplaylist"
+  }
+];

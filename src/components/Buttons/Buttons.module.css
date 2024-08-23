@@ -2,7 +2,6 @@
   padding: 8px 22px;
   border: solid 1px white;
   border-radius: 51px;
-  margin-right: 5rem;
 }
 
 .info_container {
@@ -14,4 +13,9 @@
 .info_container p {
   font-size: 12px;
   font-weight: 400;
+}
+
+.isSelected {
+  background: var(--mi-focused-color);
+  border-color: var(--mi-focused-color);
 }

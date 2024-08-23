@@ -91,8 +91,8 @@ export default function PrincipalContent() {
                   primaryText="Start Radio From Songs"
                   secondaryText="Quick Picks"
                 />
-                <div className={styles.header_content_arrows}>
-                  <Buttons text="Play All" />
+                <div className={`${styles.header_content_arrows} ${styles.header_quickPicks}`}>
+                  <Buttons text="Play All" iconUrl="src/assets/static/svgs/icon.svg"/>
                   <ArrowLeft isSelected={false} />
                   <ArrowRight isSelected />
                 </div>
