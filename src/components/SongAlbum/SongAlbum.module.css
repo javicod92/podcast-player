@@ -1,0 +1,29 @@
+.songAlbum_container {
+  cursor: pointer;
+}
+
+.image_container {
+  width: max-content;
+  height: max-content;
+  position: relative;
+}
+
+.albumImage {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.albumPlay {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+.albumImage_landScape {
+  width: 316px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 4px;
+}

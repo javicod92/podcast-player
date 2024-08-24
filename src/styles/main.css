@@ -1,0 +1,117 @@
+:root {
+  /* Global background Colors: */
+  --bg-color-dark: #0C090B;
+  --bg-color-hover: #1f1f1f;
+  /* Global letter colors */
+  --ltr-color-white: #ffffff;
+  --ltr-color-black: #000000;
+  /* Global border colors */
+  --border-color-gray: rgba(255, 255, 255, .15);
+
+  /* Progress bar colors */
+  --color-red: #FF0000;
+  --playBack-bg-color: #282828;
+
+  /* General Header bar */
+  --nav-guide-height: 96px;
+  --nav-bg-dark: #0C090B;
+  /* navigation left content */
+  --left-content-width: 232px;
+  /* Search input */
+  --input-border: 1px solid #FFFFFF80;
+  --input-background: #282828CC;
+  --input-focused-text: #ffffff;
+  --input-placeholder-text: #595656;
+
+  /* Nav Bar styles */
+  --vertical-guide-height: 248px;
+
+  /* Menú Items styles */
+  --mi-focused-color: #282828;
+
+  /* Main Section */
+  --nav-guide-bottom-height: 112px;
+  --max-content-width: 1112px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+html {
+  /* background: var(--bg-color-dark); */
+  background: linear-gradient(45deg, #0C090B, #181f18);
+  color: var(--ltr-color-white);
+  font-family: Roboto, Noto Naskh Arabic UI, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-size: 10px;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100svh;
+}
+
+button {
+  background: none;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  box-shadow: none;
+  line-height: 0;
+}
+
+/* input[type="range"] {
+  accent-color: #ff0000;
+} */
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; 
+  appearance: none;
+  width: 15px; 
+  height: 15px; 
+  background: #ff0000; 
+  border-radius: 50%; 
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  background: #ff0000; 
+  border-radius: 50%; 
+  cursor: pointer;
+}
+
+input[type="range"]::-ms-thumb {
+  width: 15px;
+  height: 15px;
+  background: #ff0000; 
+  border-radius: 50%; 
+  cursor: pointer;
+  border: none;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}

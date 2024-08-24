@@ -1,0 +1,97 @@
+.page_container {
+  width: 100%;
+  height: 100%;
+}
+
+.page_border_top_bottom {
+  width: 100%;
+  height: 100%;
+  padding: 96px 0 72px 0;
+}
+
+.page_border_left {
+  width: auto;
+  height: 100%;
+  /* This margin determines the left margin if the side bar has the compact property */
+  margin-left: 87px;
+  /* This margin is applied if the side bar has the expanded property */
+  /* margin-left: 232px; */
+  display: grid;
+  grid-template-columns: minmax(5rem, 1fr) minmax(0, 1470px) minmax(5rem, 1fr);
+}
+
+.page_main {
+  width: 100%;
+  height: 100%;
+  /* background: aqua; */
+  grid-column: 2 / 3;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.filter {
+  margin: 20px 0;
+  display: flex;
+  gap: 10px;
+}
+
+.listenAgain_content,
+.similarTo_container,
+.quickPicks_container,
+.recommendedAlbums_container {
+  width: 100%;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.listenAgain_content_header,
+.similarTo_content_header,
+.quickPicks_content_header {
+  width: 100%;
+  height: max-content;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.header_content_arrows {
+  display: flex;
+  gap: 8px;
+}
+
+.header_quickPicks button:first-child {
+  margin-right: 50px;
+}
+
+.listenAgain_content_albums,
+.artistContainer,
+.recommendedAlbums {
+  width: 100%;
+  height: max-content;
+  display: flex;
+  gap: 25px;
+  overflow-x: scroll;
+  scrollbar-color: transparent transparent;
+  /* scrollbar-width: thin; */
+}
+
+.listenAgain_content_albums:hover,
+.artistContainer:hover,
+.recommendedAlbums:hover {
+  scrollbar-color: #606060 transparent;
+}
+
+.quickPicks_songCards {
+  width: 100%;
+  height: max-content;
+  display: grid;
+  grid-template-columns: repeat(
+    4,
+    minmax(240px, 1fr)
+  ); /* repeat(content-fit, minmax()) */
+  gap: 24px;
+}

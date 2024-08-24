@@ -1,0 +1,20 @@
+.button_filter{
+  width: max-content;
+  height: max-content;
+}
+
+.paragrap {
+  width: max-content;
+  height: max-content;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 16px 16px;
+  background: #282828;
+  border-radius: 8px;
+  text-wrap: nowrap;
+}
+
+.selected {
+  background: #FFFFFF;
+  color: #282828;
+}
