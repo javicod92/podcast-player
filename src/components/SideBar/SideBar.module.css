@@ -1,3 +1,10 @@
+.sidebar_compact_fill,
+.sidebar_expanded_fill {
+  min-height: 100vh;
+  height: 100%;
+  flex-shrink: 0;
+}
+
 .navBar_container {
   height: calc(100vh - var(--nav-guide-height));
   background: var(--nav-bg-dark);
@@ -11,7 +18,8 @@
   align-items: center;
 }
 
-.compact_container {
+.compact_container,
+.sidebar_compact_fill {
   width: 88px;
 }
 
@@ -24,7 +32,8 @@
   gap: 4px;
 }
 
-.expanded_container {
+.expanded_container,
+.sidebar_expanded_fill {
   width: 232px;
 }
 
