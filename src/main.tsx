@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { ReactNode } from "react";
 import ReactDOM from "react-dom/client";
 import "./styles/main.css";
@@ -12,10 +12,18 @@ type Props = {
 };
 
 function Layout(props: Props) {
+  //This status is for setting the sidebar mode
+  const [sidebarMode, setSidebarMode] = useState<"compact" | "expanded">("compact");
+
+  //This function toggles between compact and expanded sidebar mode
+  const toggleSidebar = () => {
+    setSidebarMode(prevSidebarMode => prevSidebarMode === "compact" ? "expanded" : "compact");
+  }
+  
   return (
     <>
-      <Header />
-      <SideBar size="compact" />
+      <Header onToggleSidebar={toggleSidebar}/>
+      <SideBar size={sidebarMode} />
       {props.children}
     </>
   );

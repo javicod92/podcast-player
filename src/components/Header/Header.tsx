@@ -2,11 +2,15 @@ import styles from "./header.module.css";
 import AvatarAddon from "../AvatarAddon/AvatarAddon.tsx";
 import OnPlatformLogo from "../OnPlatformLogo/OnPlatformLogo.tsx";
 
-export default function Header() {
+type Props = {
+  onToggleSidebar: () => void;
+}
+
+export default function Header(props: Props) {
   return (
     <div className={styles.top_bar}>
       <div className={styles.bar_left_content}>
-        <button id="button" className={styles.bar_icon_btn}>
+        <button onClick={props.onToggleSidebar} id="button" className={styles.bar_icon_btn}>
           <img src="/src/assets/static/svgs/menu.svg" alt="Menu" />
         </button>
         <a href="#" id="home-page-button" className={styles.bar_home_btn}>
