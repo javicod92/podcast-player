@@ -1,39 +1,29 @@
-import React, { useState } from "react";
-import { ReactNode } from "react";
+import { useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./styles/main.css";
-import Header from "./components/Header/Header.tsx";
-import SideBar from "./components/SideBar/SideBar.tsx";
+import Layout from "./components/Layout/Layout.tsx";
 import PlaybackBar from "./components/PlaybackBar/PlaybackBar.tsx";
 import PrincipalContent from "./components/PrincipalContent/PrincipalContent.tsx";
 
-type Props = {
-  children: ReactNode;
-};
-
-function Layout(props: Props) {
+function Main() {
   //This status is for setting the sidebar mode
-  const [sidebarMode, setSidebarMode] = useState<"compact" | "expanded">("compact");
+  const [sidebarMode, setSidebarMode] = useState<"compact" | "expanded">(
+    "compact"
+  );
 
   //This function toggles between compact and expanded sidebar mode
   const toggleSidebar = () => {
-    setSidebarMode(prevSidebarMode => prevSidebarMode === "compact" ? "expanded" : "compact");
-  }
-  
-  return (
-    <>
-      <Header onToggleSidebar={toggleSidebar}/>
-      <SideBar size={sidebarMode} />
-      {props.children}
-    </>
-  );
-}
+    setSidebarMode((prevSidebarMode) =>
+      prevSidebarMode === "compact" ? "expanded" : "compact"
+    );
+  };
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.Fragment>
-    <Layout>
+  return (
+    <Layout setSidebarMode={toggleSidebar} sidebarMode={sidebarMode}>
       <PlaybackBar />
       <PrincipalContent />
     </Layout>
-  </React.Fragment>
-);
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")!).render(<Main />);
