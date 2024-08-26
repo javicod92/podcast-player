@@ -1,30 +1,31 @@
 :root {
   /* Global background Colors: */
-  --bg-color-dark: #0C090B;
+  --bg-color-dark: #0c090b;
   --bg-color-hover: #1f1f1f;
   /* Global letter colors */
   --ltr-color-white: #ffffff;
   --ltr-color-black: #000000;
   /* Global border colors */
-  --border-color-gray: rgba(255, 255, 255, .15);
+  --border-color-gray: rgba(255, 255, 255, 0.15);
 
   /* Progress bar colors */
-  --color-red: #FF0000;
+  --color-red: #ff0000;
   --playBack-bg-color: #282828;
 
   /* General Header bar */
   --nav-guide-height: 96px;
-  --nav-bg-dark: #0C090B;
+  --nav-bg-dark: #0c090b;
   /* navigation left content */
   --left-content-width: 232px;
   /* Search input */
-  --input-border: 1px solid #FFFFFF80;
-  --input-background: #282828CC;
+  --input-border: 1px solid #ffffff80;
+  --input-background: #282828cc;
   --input-focused-text: #ffffff;
   --input-placeholder-text: #595656;
 
-  /* Nav Bar styles */
-  --vertical-guide-height: 248px;
+  /* SideBar styles */
+  --sidebar-compact-width-guide: 88px;
+  --sidebar-expanded-width-guide: 232px;
 
   /* Menú Items styles */
   --mi-focused-color: #282828;
@@ -43,7 +44,7 @@
 
 html {
   /* background: var(--bg-color-dark); */
-  background: linear-gradient(45deg, #0C090B, #181f18);
+  background: linear-gradient(45deg, #0c090b, #181f18);
   color: var(--ltr-color-white);
   font-family: Roboto, Noto Naskh Arabic UI, Arial, sans-serif;
   line-height: 1.5;
@@ -85,28 +86,28 @@ input[type="range"] {
 }
 
 input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none; 
+  -webkit-appearance: none;
   appearance: none;
-  width: 15px; 
-  height: 15px; 
-  background: #ff0000; 
-  border-radius: 50%; 
+  width: 15px;
+  height: 15px;
+  background: #ff0000;
+  border-radius: 50%;
   cursor: pointer;
 }
 
 input[type="range"]::-moz-range-thumb {
   width: 15px;
   height: 15px;
-  background: #ff0000; 
-  border-radius: 50%; 
+  background: #ff0000;
+  border-radius: 50%;
   cursor: pointer;
 }
 
 input[type="range"]::-ms-thumb {
   width: 15px;
   height: 15px;
-  background: #ff0000; 
-  border-radius: 50%; 
+  background: #ff0000;
+  border-radius: 50%;
   cursor: pointer;
   border: none;
 }

@@ -20,7 +20,7 @@
 
 .compact_container,
 .sidebar_compact_fill {
-  width: 88px;
+  width: var(--sidebar-compact-width-guide);
 }
 
 .compact_sidebar {
@@ -28,13 +28,13 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  Padding: 20px 12px;
+  padding: 20px 12px;
   gap: 4px;
 }
 
 .expanded_container,
 .sidebar_expanded_fill {
-  width: 232px;
+  width: var(--sidebar-expanded-width-guide);
 }
 
 .expanded_sidebar {
@@ -58,7 +58,7 @@
   padding: 0 16px;
 }
 
-.playList_button_container button{
+.playList_button_container button {
   width: 100%;
   display: flex;
   justify-content: center;
