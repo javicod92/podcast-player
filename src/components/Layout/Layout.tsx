@@ -6,13 +6,17 @@ type Props = {
   children: ReactNode;
   setSidebarMode: () => void;
   sidebarMode: "compact" | "expanded";
+  setIsPlaylistAddOpen: () => void;
 };
 
 export default function Layout(props: Props) {
   return (
     <>
       <Header onToggleSidebar={props.setSidebarMode} />
-      <SideBar size={props.sidebarMode} />
+      <SideBar
+        setIsPlaylistAddOpen={props.setIsPlaylistAddOpen}
+        size={props.sidebarMode}
+      />
       {props.children}
     </>
   );

@@ -33,6 +33,9 @@
   /* Main Section */
   --nav-guide-bottom-height: 112px;
   --max-content-width: 1112px;
+
+  /* Playback Styles */
+  --playback-height: 72px;
 }
 
 * {

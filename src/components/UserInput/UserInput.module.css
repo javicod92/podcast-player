@@ -1,0 +1,28 @@
+.input_container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.input_container label {
+  font-size: 12px;
+}
+
+.input_element {
+  font-size: 16px;
+  padding: 1rem;
+  border: var(--input-border);
+  border-radius: 8px;
+  background: var(--mi-focused-color);
+  width: 416px;
+  color: var(--input-placeholder-text);
+}
+
+.input_element::placeholder {
+  color: var(--input-placeholder-text);
+}
+
+.input_element:focus {
+  box-shadow: none;
+  color: var(--input-focused-text);
+}

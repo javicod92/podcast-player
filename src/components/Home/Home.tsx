@@ -95,6 +95,7 @@ export default function PrincipalContent() {
                   className={`${styles.header_content_arrows} ${styles.header_quickPicks}`}
                 >
                   <Buttons
+                    type="button"
                     text="Play All"
                     iconUrl="src/assets/static/svgs/icon.svg"
                   />
