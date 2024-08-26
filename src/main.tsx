@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./styles/main.css";
 import Layout from "./components/Layout/Layout.tsx";
 import PlaybackBar from "./components/PlaybackBar/PlaybackBar.tsx";
-import PrincipalContent from "./components/PrincipalContent/PrincipalContent.tsx";
+import Home from "./components/Home/Home.tsx";
 
 function Main() {
   //This status is for setting the sidebar mode
@@ -21,7 +21,7 @@ function Main() {
   return (
     <Layout setSidebarMode={toggleSidebar} sidebarMode={sidebarMode}>
       <PlaybackBar />
-      <PrincipalContent />
+      <Home />
     </Layout>
   );
 }
