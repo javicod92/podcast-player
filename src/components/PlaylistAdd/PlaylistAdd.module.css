@@ -3,6 +3,7 @@
   height: 100%;
   padding: var(--nav-guide-height) 0 var(--playback-height) 0;
   display: flex;
+  position: relative;
 }
 
 .playlist_inputs_container {
@@ -23,4 +24,12 @@
   display: flex;
   align-items: center;
   margin-top: 50px;
+  padding: 0 4rem;
+}
+
+.close_btn {
+  position: absolute;
+  top: calc(var(--nav-guide-height) + 25px);
+  right: 35px;
+  z-index: 10;
 }

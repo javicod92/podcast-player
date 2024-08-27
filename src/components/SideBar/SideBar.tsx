@@ -5,15 +5,17 @@ import { userPlaylist } from "../Logic/DataBaseSimulation.ts";
 
 type Props = {
   size: "compact" | "expanded";
-  setIsPlaylistAddOpen: () => void;
+  setIsPlaylistAddOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 //This functun accepts "compact" and "spanded" parameters
-export default function SideBar({
-  setIsPlaylistAddOpen,
-  size = "compact",
-}: Props) {
-  if (size === "compact") {
+export default function SideBar(props: Props) {
+  //This function is used to render the “add playlist” section when the menu button is clicked
+  const togglePlayListAdd = () => {
+    props.setIsPlaylistAddOpen((prevState) => (prevState ? false : true));
+  };
+
+  if (props.size === "compact") {
     return (
       <div className={styles.sidebar_compact_fill}>
         <div
@@ -70,7 +72,7 @@ export default function SideBar({
         </div>
         <div className={styles.playList_button_container}>
           <Buttons
-            onClickFn={setIsPlaylistAddOpen}
+            onClickFn={togglePlayListAdd}
             type="button"
             text="Nueva Playlist"
             iconUrl="src/assets/static/svgs/icon.svg"

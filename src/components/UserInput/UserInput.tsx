@@ -1,17 +1,18 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent } from "react";
 import styles from "./UserInput.module.css";
 
 type Props = {
   placeHolder: string;
   inputId: string;
   text: string;
+  handlChange: React.Dispatch<React.SetStateAction<string>>;
+  value: string;
 };
 
 export default function UserInput(props: Props) {
-  const [inputValue, setInputValue] = useState("");
-
-  function handleChange(event: ChangeEvent<HTMLInputElement>) {
-    setInputValue(event.target.value);
+  
+  const handlChange = (event: ChangeEvent<HTMLInputElement>) => {
+    props.handlChange(event.target.value);
   }
 
   return (
@@ -23,8 +24,8 @@ export default function UserInput(props: Props) {
         type="text"
         placeholder={props.placeHolder}
         aria-label={props.placeHolder}
-        onChange={handleChange}
-        value={inputValue}
+        onChange={handlChange}
+        value={props.value}
         required
       />
     </div>

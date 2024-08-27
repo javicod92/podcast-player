@@ -1,16 +1,24 @@
 import styles from "./header.module.css";
 import AvatarAddon from "../AvatarAddon/AvatarAddon.tsx";
 import OnPlatformLogo from "../OnPlatformLogo/OnPlatformLogo.tsx";
+import { Dispatch, SetStateAction } from "react";
 
 type Props = {
-  onToggleSidebar: () => void;
+  setSidebarMode: Dispatch<SetStateAction<"compact" | "expanded">>;
 }
 
 export default function Header(props: Props) {
+  //This function toggles between compact and expanded sidebar mode
+  const toggleSidebar = () => {
+    props.setSidebarMode((prevSidebarMode) =>
+      prevSidebarMode === "compact" ? "expanded" : "compact"
+    );
+  };
+  
   return (
     <div className={styles.top_bar}>
       <div className={styles.bar_left_content}>
-        <button onClick={props.onToggleSidebar} id="button" className={styles.bar_icon_btn}>
+        <button onClick={toggleSidebar} id="button" className={styles.bar_icon_btn}>
           <img src="/src/assets/static/svgs/menu.svg" alt="Menu" />
         </button>
         <a href="#" id="home-page-button" className={styles.bar_home_btn}>
