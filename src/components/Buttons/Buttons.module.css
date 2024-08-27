@@ -19,3 +19,8 @@
   background: var(--mi-focused-color);
   border-color: var(--mi-focused-color);
 }
+
+.isDisabled {
+  opacity: 0.2;
+  cursor: default;
+}

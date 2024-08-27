@@ -11,11 +11,13 @@ function Main() {
   const [isPlaylistAddOpen, setIsPlaylistAddOpen] = useState<boolean>(false);
 
   return (
-    <Layout
-      setIsPlaylistAddOpen={setIsPlaylistAddOpen}
-    >
+    <Layout setIsPlaylistAddOpen={setIsPlaylistAddOpen}>
       <PlaybackBar />
-      {!isPlaylistAddOpen ? <Home /> : <PlaylistAdd />}
+      {!isPlaylistAddOpen ? (
+        <Home />
+      ) : (
+        <PlaylistAdd setIsPlaylistAddOpen={setIsPlaylistAddOpen} />
+      )}
     </Layout>
   );
 }
