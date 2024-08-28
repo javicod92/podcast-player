@@ -1,11 +1,18 @@
 import styles from "./SideBar.module.css";
 import MenuItem from "../MenuItem/MenuItem.tsx";
 import Buttons from "../Buttons/Buttons.tsx";
-import { userPlaylist } from "../Logic/DataBaseSimulation.ts";
+// import { userPlaylist } from "../Logic/DataBaseSimulation.ts";
 
 type Props = {
   size: "compact" | "expanded";
   setIsPlaylistAddOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  items: ItemList[];
+};
+
+type ItemList = {
+  title: string;
+  description: string;
+  imageUrl: string;
 };
 
 //This functun accepts "compact" and "spanded" parameters
@@ -81,12 +88,12 @@ export default function SideBar(props: Props) {
         </div>
         <div className={styles.playlist_list_container}>
           <div className={styles.playlist_content}>
-            {userPlaylist.map((list) => {
+            {props.items.map((item) => {
               return (
                 <MenuItem
-                  key={list.key}
-                  primarytext={list.playlistName}
-                  secondaryText={list.createdBy}
+                  key={item.title}
+                  primarytext={item.title}
+                  secondaryText={item.description}
                   buttonSize="horizontally"
                 />
               );

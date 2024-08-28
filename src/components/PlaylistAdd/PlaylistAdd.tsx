@@ -7,8 +7,10 @@ import ArtistProfile from "../ArtistProfile/ArtistProfile";
 
 type Props = {
   setIsPlaylistAddOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setItems: React.Dispatch<React.SetStateAction<ItemList[]>>;
 };
 
+//This types are used to create a correct playlist
 type ItemList = {
   title: string;
   description: string;
@@ -16,9 +18,6 @@ type ItemList = {
 };
 
 export default function PlaylistAdd(props: Props) {
-  //This constant contains the state “playlist” which allows me to render them in the list of playlists created by the user
-  const [items, setItems] = useState<ItemList[]>([]);
-
   //These constants allow me to create an object that will contain the “playlist” added by the user
   const [title, setTitle] = useState<string>("");
   const [description, setDescription] = useState<string>("");
@@ -27,7 +26,7 @@ export default function PlaylistAdd(props: Props) {
   function handlSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const newItem: ItemList = { title, description, imageUrl };
-    setItems((prevItemList) => [...prevItemList, newItem]);
+    props.setItems((prevItemList) => [...prevItemList, newItem]);
 
     //Setting states to default values
     setTitle("");
