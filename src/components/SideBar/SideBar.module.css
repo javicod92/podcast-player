@@ -76,7 +76,7 @@
   height: calc(100% - 72px);
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.5rem;
   overflow-y: auto;
   overflow-x: hidden;
   text-wrap: nowrap;

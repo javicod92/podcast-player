@@ -91,7 +91,7 @@ export default function SideBar(props: Props) {
             {props.items.map((item) => {
               return (
                 <SongCard
-                  size={"small"}
+                  size={"smallest"}
                   imageUrl={item.imageUrl}
                   songTitle={item.title}
                   artist={item.description}
