@@ -3,25 +3,23 @@ import convertNumber from "../Logic/convertNumber.ts";
 import UserReaction from "../UserReaction/UserReaction.tsx";
 
 type Props = {
-  size: string;
+  size: "small" | "medium" | "large";
   imageUrl: string;
   songTitle: string;
   artist: string;
-  views: number;
-  likes: number;
+  views?: number;
+  likes?: number;
+};
+
+const className = {
+  small: "songCard_container_default",
+  medium: "songCard_container_medium",
+  large: "songCard_container_large",
 };
 
 export default function SongCard(props: Props) {
   return (
-    <div
-      className={
-        props.size === "small"
-          ? styles.songCard_container_default
-          : props.size === "medium"
-          ? styles.songCard_container_medium
-          : styles.songCard_container_large
-      }
-    >
+    <div className={styles[className[props.size]]}>
       <img
         src={props.imageUrl}
         alt="Artist Album"
@@ -35,8 +33,8 @@ export default function SongCard(props: Props) {
             {(props.size === "small" || props.size === "medium") &&
               " • Listen Again"}{" "}
             {props.size === "large" &&
-              ` • ${convertNumber(props.views)} views • ${convertNumber(
-                props.likes
+              ` • ${convertNumber(props.views || 0)} views • ${convertNumber(
+                props.likes || 0
               )} likes`}
           </p>
         </div>

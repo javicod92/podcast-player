@@ -1,7 +1,7 @@
 import styles from "./SideBar.module.css";
 import MenuItem from "../MenuItem/MenuItem.tsx";
 import Buttons from "../Buttons/Buttons.tsx";
-// import { userPlaylist } from "../Logic/DataBaseSimulation.ts";
+import SongCard from "../SongCard/SongCard.tsx";
 
 type Props = {
   size: "compact" | "expanded";
@@ -90,11 +90,11 @@ export default function SideBar(props: Props) {
           <div className={styles.playlist_content}>
             {props.items.map((item) => {
               return (
-                <MenuItem
-                  key={item.title}
-                  primarytext={item.title}
-                  secondaryText={item.description}
-                  buttonSize="horizontally"
+                <SongCard
+                  size={"small"}
+                  imageUrl={item.imageUrl}
+                  songTitle={item.title}
+                  artist={item.description}
                 />
               );
             })}
