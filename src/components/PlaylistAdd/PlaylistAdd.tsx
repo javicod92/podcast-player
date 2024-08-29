@@ -72,15 +72,13 @@ export default function PlaylistAdd(props: Props) {
         />
       </form>
       <div className={styles.playlist_imageAlbum_container}>
-        {title && description && imageUrl && (
-          <ArtistProfile
-            playlistName={title}
-            isAlbum={true}
-            imageUrl={imageUrl}
-            artist={description}
-            onlyDescription
-          />
-        )}
+        <ArtistProfile
+          playlistName={title}
+          isAlbum={true}
+          imageUrl={imageUrl}
+          artist={description}
+          onlyDescription
+        />
       </div>
       <div className={styles.close_btn}>
         <CloseBtn handlButton={handlClose} />
