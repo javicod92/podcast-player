@@ -82,7 +82,7 @@ export default function SideBar(props: Props) {
             onClickFn={togglePlayListAdd}
             type="button"
             text="Nueva Playlist"
-            iconUrl="src/assets/static/svgs/icon.svg"
+            iconUrl="src/assets/static/svgs/plus.svg"
             isSelected
           />
         </div>
