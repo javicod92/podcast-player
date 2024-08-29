@@ -19,7 +19,7 @@ type ItemList = {
 export default function SideBar(props: Props) {
   //This function is used to render the “add playlist” section when the menu button is clicked
   const togglePlayListAdd = () => {
-    props.setIsPlaylistAddOpen((prevState) => (prevState ? false : true));
+    props.setIsPlaylistAddOpen((prevState) => !prevState);
   };
 
   if (props.size === "compact") {
