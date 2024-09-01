@@ -19,19 +19,23 @@ type ItemList = {
 
 export default function PlaylistAdd(props: Props) {
   //These constants allow me to create an object that will contain the “playlist” added by the user
-  const [title, setTitle] = useState<string>("");
-  const [description, setDescription] = useState<string>("");
-  const [imageUrl, setImageUrl] = useState<string>("");
+  const [formStates, setFormStates] = useState<ItemList>({
+    title: "",
+    description: "",
+    imageUrl: "",
+  });
 
   function handlSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const newItem: ItemList = { title, description, imageUrl };
-    props.setItems((prevItemList) => [...prevItemList, newItem]);
+    props.setItems((prevItemList) => [...prevItemList, formStates]);
 
     //Setting states to default values
-    setTitle("");
-    setDescription("");
-    setImageUrl("");
+    setFormStates((prevStates) => ({
+      ...prevStates,
+      title: "",
+      description: "",
+      imageUrl: "",
+    }));
   }
 
   function handlClose() {
@@ -43,28 +47,33 @@ export default function PlaylistAdd(props: Props) {
       <form className={styles.playlist_inputs_container} onSubmit={handlSubmit}>
         <h2>Creá tu playlist</h2>
         <UserInput
+          name="title"
           text="Título"
           placeHolder="Título de la lista"
           inputId="list-title"
-          handlChange={setTitle}
-          value={title}
+          handlChange={setFormStates}
+          value={formStates.title}
         />
         <UserInput
+          name="description"
           text="Descripción"
           placeHolder="Descripción de la lista"
           inputId="list-description"
-          handlChange={setDescription}
-          value={description}
+          handlChange={setFormStates}
+          value={formStates.description}
         />
         <UserInput
+          name="imageUrl"
           text="Imágen (URL)"
           placeHolder="Imágen de la lista"
           inputId="list-image"
-          handlChange={setImageUrl}
-          value={imageUrl}
+          handlChange={setFormStates}
+          value={formStates.imageUrl}
         />
         <Buttons
-          disabled={!(title && description && imageUrl)}
+          disabled={
+            !(formStates.title && formStates.description && formStates.imageUrl)
+          }
           type="submit"
           text="Agregar Playlist"
           iconUrl="src/assets/static/svgs/plus.svg"
@@ -73,10 +82,10 @@ export default function PlaylistAdd(props: Props) {
       </form>
       <div className={styles.playlist_imageAlbum_container}>
         <ArtistProfile
-          playlistName={title}
+          playlistName={formStates.title}
           isAlbum={true}
-          imageUrl={imageUrl}
-          artist={description}
+          imageUrl={formStates.imageUrl}
+          artist={formStates.description}
           onlyDescription
         />
       </div>

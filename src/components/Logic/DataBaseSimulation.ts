@@ -199,7 +199,17 @@ export const similarTo = [
   },
 ];
 
-export const quickPicks = [
+type quickPicksProps = {
+  key: number;
+  size: "smallest" | "small" | "medium" | "large";
+  imageUrl: string;
+  songTitle: string;
+  artist: string;
+  views?: number;
+  likes?: number;
+};
+
+export const quickPicks: quickPicksProps[] = [
   {
     key: 1,
     size: "small",
