@@ -1,31 +1,38 @@
-import React from "react";
-import { ReactNode } from "react";
+import { useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./styles/main.css";
-import Header from "./components/Header/Header.tsx";
-import SideBar from "./components/SideBar/SideBar.tsx";
+import Layout from "./components/Layout/Layout.tsx";
 import PlaybackBar from "./components/PlaybackBar/PlaybackBar.tsx";
-import PrincipalContent from "./components/PrincipalContent/PrincipalContent.tsx";
+import Home from "./components/Home/Home.tsx";
+import PlaylistAdd from "./components/PlaylistAdd/PlaylistAdd.tsx";
+import { userPlaylist } from "./components/Logic/DataBaseSimulation.ts";
 
-type Props = {
-  children: ReactNode;
+type ItemList = {
+  title: string;
+  description: string;
+  imageUrl: string;
 };
 
-function Layout(props: Props) {
+function Main() {
+  //This status is used to open or close the Add Playlist or Home components
+  const [isPlaylistAddOpen, setIsPlaylistAddOpen] = useState<boolean>(false);
+
+  //This state is in main function becuse I need to send it to Layout and PlaylistAdd components
+  const [items, setItems] = useState<ItemList[]>(userPlaylist);
+
   return (
-    <>
-      <Header />
-      <SideBar size="compact" />
-      {props.children}
-    </>
+    <Layout setIsPlaylistAddOpen={setIsPlaylistAddOpen} items={items}>
+      <PlaybackBar />
+      {!isPlaylistAddOpen ? (
+        <Home />
+      ) : (
+        <PlaylistAdd
+          setItems={setItems}
+          setIsPlaylistAddOpen={setIsPlaylistAddOpen}
+        />
+      )}
+    </Layout>
   );
 }
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.Fragment>
-    <Layout>
-      <PlaybackBar />
-      <PrincipalContent />
-    </Layout>
-  </React.Fragment>
-);
+ReactDOM.createRoot(document.getElementById("root")!).render(<Main />);

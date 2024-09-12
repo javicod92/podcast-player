@@ -3,44 +3,61 @@ import convertNumber from "../Logic/convertNumber.ts";
 import UserReaction from "../UserReaction/UserReaction.tsx";
 
 type Props = {
-  size: string;
+  size: "smallest" | "small" | "medium" | "large";
   imageUrl: string;
   songTitle: string;
   artist: string;
-  views: number;
-  likes: number;
+  views?: number;
+  likes?: number;
+};
+
+const className = {
+  smallest: "songCard_container_smallest",
+  small: "songCard_container_default",
+  medium: "songCard_container_medium",
+  large: "songCard_container_large",
 };
 
 export default function SongCard(props: Props) {
   return (
-    <div
-      className={
-        props.size === "small"
-          ? styles.songCard_container_default
-          : props.size === "medium"
-          ? styles.songCard_container_medium
-          : styles.songCard_container_large
-      }
-    >
+    <div className={styles[className[props.size]]}>
       <img
         src={props.imageUrl}
         alt="Artist Album"
-        className={styles.artist_image}
+        className={
+          props.size !== "smallest"
+            ? styles.artist_image
+            : styles.artist_image_smallest
+        }
       />
       <div className={styles.artist_description}>
         <div className={styles.description_text}>
-          <p className={styles.songTitle}>{props.songTitle}</p>
-          <p className={styles.artistDescription}>
-            {props.artist}{" "}
-            {(props.size === "small" || props.size === "medium") &&
-              " • Listen Again"}{" "}
+          <p
+            className={
+              props.size !== "smallest"
+                ? styles.songTitle
+                : styles.songTitle_smallest
+            }
+          >
+            {props.songTitle}
+          </p>
+          <p
+            className={
+              props.size !== "smallest"
+                ? styles.artistDescription
+                : styles.artistDescription_smallest
+            }
+          >
+            {props.artist} {props.size !== "large" && " • Listen Again"}{" "}
             {props.size === "large" &&
-              ` • ${convertNumber(props.views)} views • ${convertNumber(
-                props.likes
+              ` • ${convertNumber(props.views || 0)} views • ${convertNumber(
+                props.likes || 0
               )} likes`}
           </p>
         </div>
-        {props.size != "small" && <UserReaction />}
+        {props.size !== "small" && props.size !== "smallest" && (
+          <UserReaction />
+        )}
       </div>
     </div>
   );

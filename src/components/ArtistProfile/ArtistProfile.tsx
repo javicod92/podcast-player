@@ -3,22 +3,27 @@ import convertNumber from "../Logic/convertNumber.ts";
 
 type Props = {
   isAlbum: boolean;
-  imageUrl: string;
-  artist: string;
+  imageUrl?: string;
+  artist?: string;
   playlistName?: string;
-  subscriberNumber: number;
+  subscriberNumber?: number;
+  onlyDescription?: true;
 };
 
 export default function ArtistProfile(props: Props) {
-  const subscribeNumberConverted = convertNumber(props.subscriberNumber);
-
   return (
     <div className={styles.artistProfile_container}>
-      <img
-        className={props.isAlbum ? styles.album_image : styles.artist_image}
-        src={props.imageUrl}
-        alt="Artist Cover"
-      />
+      {props.imageUrl ? (
+        <img
+          className={props.isAlbum ? styles.album_image : styles.artist_image}
+          src={props.imageUrl}
+          alt="Artist Cover"
+        />
+      ) : (
+        <div className={styles.image_representation}>
+          <p>Imágen de Portada</p>
+        </div>
+      )}
       <div
         className={
           props.isAlbum
@@ -30,14 +35,27 @@ export default function ArtistProfile(props: Props) {
           <>
             <p className={styles.font_bold}>{props.artist}</p>
             <p className={styles.font_normal}>
-              {subscribeNumberConverted} Subscribers
+              {convertNumber(props.subscriberNumber || 0)} Subscribers
             </p>
           </>
         )}
         {props.isAlbum && (
           <>
-            <p className={styles.font_bold}>{props.playlistName}</p>
-            <p className={styles.font_normal}>{props.artist} • Listen Again</p>
+            <p
+              className={`${styles.font_bold} ${
+                !props.playlistName && styles.unfocussed
+              }`}
+            >
+              {props.playlistName ? props.playlistName : "Título de la lista"}
+            </p>
+            <p
+              className={`${styles.font_normal} ${
+                !props.artist && styles.unfocussed
+              }`}
+            >
+              {props.artist ? props.artist : "Descripción"}{" "}
+              {!props.onlyDescription && " • Listen Again"}
+            </p>
           </>
         )}
       </div>

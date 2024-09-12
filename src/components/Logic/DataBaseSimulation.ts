@@ -199,7 +199,17 @@ export const similarTo = [
   },
 ];
 
-export const quickPicks = [
+type quickPicksProps = {
+  key: number;
+  size: "smallest" | "small" | "medium" | "large";
+  imageUrl: string;
+  songTitle: string;
+  artist: string;
+  views?: number;
+  likes?: number;
+};
+
+export const quickPicks: quickPicksProps[] = [
   {
     key: 1,
     size: "small",
@@ -421,45 +431,54 @@ export const recomendedAlbums = [
   },
 ];
 
+// export const userPlaylist = [
+//   {
+//     key: 1,
+//     playlistName: "Top 100 Argentina",
+//     createdBy: "Autoplaylist"
+//   },
+//   {
+//     key: 2,
+//     playlistName: "Top 50 Internacionales",
+//     createdBy: "Autoplaylist"
+//   },
+//   {
+//     key: 3,
+//     playlistName: "Best Melodic Techno",
+//     createdBy: "Autoplaylist"
+//   },
+//   {
+//     key: 4,
+//     playlistName: "Top 10 Boris Brejcha",
+//     createdBy: "Autoplaylist"
+//   },
+//   {
+//     key: 5,
+//     playlistName: "Can't Stop the Feeling!",
+//     createdBy: "Autoplaylist"
+//   },
+//   {
+//     key: 6,
+//     playlistName: "Enrico Sangiuliano",
+//     createdBy: "Autoplaylist"
+//   },
+//   {
+//     key: 7,
+//     playlistName: "Demon Days",
+//     createdBy: "Autoplaylist"
+//   },
+//   {
+//     key: 8,
+//     playlistName: "Deep City Electronic",
+//     createdBy: "Autoplaylist"
+//   }
+// ];
+
 export const userPlaylist = [
   {
-    key: 1,
-    playlistName: "Top 100 Argentina",
-    createdBy: "Autoplaylist"
+    title: "Boris Brejcha",
+    description: "Electronic Music",
+    imageUrl:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWuEAPgAhev-xelHt5NTmV49yPasb9KKbEyA&s",
   },
-  {
-    key: 2,
-    playlistName: "Top 50 Internacionales",
-    createdBy: "Autoplaylist"
-  },
-  {
-    key: 3,
-    playlistName: "Best Melodic Techno",
-    createdBy: "Autoplaylist"
-  },
-  {
-    key: 4,
-    playlistName: "Top 10 Boris Brejcha",
-    createdBy: "Autoplaylist"
-  },
-  {
-    key: 5,
-    playlistName: "Can't Stop the Feeling!",
-    createdBy: "Autoplaylist"
-  },
-  {
-    key: 6,
-    playlistName: "Enrico Sangiuliano",
-    createdBy: "Autoplaylist"
-  },
-  {
-    key: 7,
-    playlistName: "Demon Days",
-    createdBy: "Autoplaylist"
-  },
-  {
-    key: 8,
-    playlistName: "Deep City Electronic",
-    createdBy: "Autoplaylist"
-  }
 ];

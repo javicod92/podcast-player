@@ -12,10 +12,7 @@
 .page_border_left {
   width: auto;
   height: 100%;
-  /* This margin determines the left margin if the side bar has the compact property */
-  margin-left: 87px;
-  /* This margin is applied if the side bar has the expanded property */
-  /* margin-left: 232px; */
+  overflow: hidden;
   display: grid;
   grid-template-columns: minmax(5rem, 1fr) minmax(0, 1470px) minmax(5rem, 1fr);
 }

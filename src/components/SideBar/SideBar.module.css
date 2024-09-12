@@ -1,3 +1,10 @@
+.sidebar_compact_fill,
+.sidebar_expanded_fill {
+  min-height: 100vh;
+  height: 100%;
+  flex-shrink: 0;
+}
+
 .navBar_container {
   height: calc(100vh - var(--nav-guide-height));
   background: var(--nav-bg-dark);
@@ -11,8 +18,9 @@
   align-items: center;
 }
 
-.compact_container {
-  width: 88px;
+.compact_container,
+.sidebar_compact_fill {
+  width: var(--sidebar-compact-width-guide);
 }
 
 .compact_sidebar {
@@ -20,12 +28,13 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  Padding: 20px 12px;
+  padding: 20px 12px;
   gap: 4px;
 }
 
-.expanded_container {
-  width: 232px;
+.expanded_container,
+.sidebar_expanded_fill {
+  width: var(--sidebar-expanded-width-guide);
 }
 
 .expanded_sidebar {
@@ -49,7 +58,7 @@
   padding: 0 16px;
 }
 
-.playList_button_container button{
+.playList_button_container button {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -67,6 +76,7 @@
   height: calc(100% - 72px);
   display: flex;
   flex-direction: column;
+  gap: 1.5rem;
   overflow-y: auto;
   overflow-x: hidden;
   text-wrap: nowrap;
