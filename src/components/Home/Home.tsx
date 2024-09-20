@@ -17,6 +17,12 @@ import { useEffect, useState } from "react";
 
 const API_URL = "https://api.audioboom.com/audio_clips";
 
+type Props = {
+  currentSongId: number | null;
+  isPlaying: boolean;
+  onSongClick: (id: number) => void;
+};
+
 type fetchTypes = {
   id: number;
   title: string;
@@ -28,9 +34,12 @@ type fetchTypes = {
       };
     };
   };
+  urls: {
+    high_mp3: string;
+  };
 };
 
-export default function PrincipalContent() {
+export default function PrincipalContent(props: Props) {
   //States used for the data fetching and resolution of the promises
   const [data, setData] = useState<fetchTypes[]>([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -102,10 +111,17 @@ export default function PrincipalContent() {
                     return (
                       <SongAlbum
                         key={element.id}
+                        id={element.id}
                         isAlbum={false}
                         imageSource={element.channel.urls.logo_image.original}
                         primaryText={element.title}
                         secondaryText={element.description}
+                        audioSrc={element.urls.high_mp3}
+                        isPlaying={
+                          props.currentSongId === element.id && props.isPlaying
+                        }
+                        isCurrentSong={props.currentSongId === element.id}
+                        handleClick={() => props.onSongClick(element.id)}
                       />
                     );
                   })

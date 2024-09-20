@@ -20,11 +20,32 @@ function Main() {
   //This state is in main function becuse I need to send it to Layout and PlaylistAdd components
   const [items, setItems] = useState<ItemList[]>(userPlaylist);
 
+  //These states are used to identify the audio that is currently selected
+  const [currentSongId, setCurrentSongId] = useState<number | null>(null);
+  const [isPlaying, setIsPlaying] = useState<boolean>(false);
+
+  const handleSongClick = (id: number) => {
+    if (currentSongId === id) {
+      setIsPlaying(!isPlaying);
+    } else {
+      setCurrentSongId(id);
+      setIsPlaying(true);
+    }
+  };
+
+  const handlePlayPause = () => {
+    setIsPlaying(!isPlaying);
+  };
+
   return (
     <Layout setIsPlaylistAddOpen={setIsPlaylistAddOpen} items={items}>
-      <PlaybackBar />
+      <PlaybackBar isPlaying={isPlaying} onPlayPause={handlePlayPause} />
       {!isPlaylistAddOpen ? (
-        <Home />
+        <Home
+          currentSongId={currentSongId}
+          isPlaying={isPlaying}
+          onSongClick={handleSongClick}
+        />
       ) : (
         <PlaylistAdd
           setItems={setItems}

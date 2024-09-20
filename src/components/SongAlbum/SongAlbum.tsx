@@ -1,16 +1,40 @@
 import styles from "./SongAlbum.module.css";
 import PlayListAndSongTitle from "../PlaylistAndSongTitle/PlayListAndSongTitle.tsx";
+import { useEffect, useRef } from "react";
 
 type Props = {
+  id: number;
   isAlbum: boolean;
   imageSource?: string;
   secondaryText?: string;
   primaryText: string;
+  audioSrc: string;
   songs?: number;
   views?: number;
+  handleClick: () => void;
+  isPlaying: boolean;
+  isCurrentSong: boolean;
 };
 
 export default function SongAlbum(props: Props) {
+  const audioRef = useRef<HTMLAudioElement>(null);
+
+  useEffect(() => {
+    if (audioRef.current) {
+      if (props.isPlaying) {
+        audioRef.current.play();
+      } else {
+        audioRef.current.pause();
+      }
+    }
+  }, [props.isPlaying]);
+
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.currentTime = 0;
+    }
+  }, [props.isCurrentSong]);
+
   if (props.isAlbum) {
     return (
       <div className={styles.songAlbum_container}>
@@ -43,7 +67,7 @@ export default function SongAlbum(props: Props) {
     );
   } else {
     return (
-      <div className={styles.songAlbum_container}>
+      <div className={styles.songAlbum_container} onClick={props.handleClick}>
         <div className={styles.image_container}>
           <img
             className={styles.albumImage_landScape}
@@ -56,7 +80,11 @@ export default function SongAlbum(props: Props) {
           />
           <img
             className={styles.albumPlay}
-            src="src/assets/static/svgs/play_circle.svg"
+            src={
+              props.isPlaying
+                ? "src/assets/static/svgs/pause.svg"
+                : "src/assets/static/svgs/play_circle.svg"
+            }
             alt="Paly Circle"
           />
         </div>
@@ -69,6 +97,7 @@ export default function SongAlbum(props: Props) {
             views={props.views}
           />
         </div>
+        <audio src={props.audioSrc} ref={audioRef} />
       </div>
     );
   }

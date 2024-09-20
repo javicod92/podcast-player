@@ -2,14 +2,22 @@ import styles from "./PlaybackBar.module.css";
 import MediaControls from "../MediaControls/MediaControls.tsx";
 import SongCard from "../SongCard/SongCard.tsx";
 import SoundFunction from "../SoundFunction/SoundFunction.tsx";
-import ProgressBar from "../ProgressBar/ProgressBar.tsx"
+import ProgressBar from "../ProgressBar/ProgressBar.tsx";
 
-export default function PlaybackBar() {
+type Props = {
+  isPlaying: boolean;
+  onPlayPause: () => void;
+};
+
+export default function PlaybackBar(props: Props) {
   return (
     <div className={styles.playBar_content}>
       <div className={styles.inner_container}>
         <ProgressBar />
-        <MediaControls />
+        <MediaControls
+          isPlaying={props.isPlaying}
+          onPlayPause={props.onPlayPause}
+        />
         <SongCard
           size="large"
           songTitle="Can't Stop the Feeling!"
