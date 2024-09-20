@@ -2,7 +2,6 @@ import styles from "./Home.module.css";
 import FiltersChip from "../FiltersChip/FiltersChip";
 import {
   FilterList,
-  ListenAgain,
   similarTo,
   quickPicks,
   recomendedAlbums,
@@ -14,8 +13,62 @@ import SongAlbum from "../SongAlbum/SongAlbum";
 import ArtistProfile from "../ArtistProfile/ArtistProfile";
 import Buttons from "../Buttons/Buttons";
 import SongCard from "../SongCard/SongCard";
+import { useEffect, useState } from "react";
+
+const API_URL = "https://api.audioboom.com/audio_clips";
+
+type fetchTypes = {
+  id: number;
+  title: string;
+  description: string;
+  channel: {
+    urls: {
+      logo_image: {
+        original: string;
+      };
+    };
+  };
+};
 
 export default function PrincipalContent() {
+  //States used for the data fetching and resolution of the promises
+  const [data, setData] = useState<fetchTypes[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    setIsLoading(true);
+    fetch(API_URL)
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data.body.audio_clips);
+        console.log(data.body.audio_clips);
+      })
+      .catch(() => {
+        setError("Hubo un error de datos");
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  }, []);
+
+  if (isLoading) {
+    return (
+      <h1 style={{ display: "grid", placeContent: "center", width: "100%" }}>
+        La página se está cargando...
+      </h1>
+    );
+  }
+
+  if (error) {
+    alert("Hubo un error y la página no se cargó");
+    return (
+      <h1 style={{ display: "grid", placeContent: "center", width: "100%" }}>
+        Hubo un error y la página no se cargó
+      </h1>
+    );
+  }
+
   return (
     <div className={styles.page_container}>
       <div className={styles.page_border_top_bottom}>
@@ -44,20 +97,19 @@ export default function PrincipalContent() {
                 </div>
               </div>
               <div className={styles.listenAgain_content_albums}>
-                {ListenAgain.map((element) => {
-                  return (
-                    <SongAlbum
-                      key={element.key}
-                      isAlbum={element.isAlbum}
-                      imageSource={element.imageSource}
-                      artist={element.artist}
-                      playlistName={element.playlistName}
-                      songName={element.songName}
-                      songs={element.songs}
-                      views={element.views}
-                    />
-                  );
-                })}
+                {data
+                  .map((element) => {
+                    return (
+                      <SongAlbum
+                        key={element.id}
+                        isAlbum={false}
+                        imageSource={element.channel.urls.logo_image.original}
+                        primaryText={element.title}
+                        secondaryText={element.description}
+                      />
+                    );
+                  })
+                  .slice(0, 10)}
               </div>
             </section>
             <section id="similarTo" className={styles.similarTo_container}>

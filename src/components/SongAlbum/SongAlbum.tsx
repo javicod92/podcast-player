@@ -3,10 +3,9 @@ import PlayListAndSongTitle from "../PlaylistAndSongTitle/PlayListAndSongTitle.t
 
 type Props = {
   isAlbum: boolean;
-  imageSource: string;
-  artist: string;
-  playlistName?: string;
-  songName?: string;
+  imageSource?: string;
+  secondaryText?: string;
+  primaryText: string;
   songs?: number;
   views?: number;
 };
@@ -18,7 +17,11 @@ export default function SongAlbum(props: Props) {
         <div className={styles.image_container}>
           <img
             className={styles.albumImage}
-            src={props.imageSource}
+            src={
+              props.imageSource
+                ? props.imageSource
+                : "src/assets/static/images/errorImages/NoAlbumOrSong.webp"
+            }
             alt="Album Photo"
           />
           <img
@@ -30,9 +33,8 @@ export default function SongAlbum(props: Props) {
         <div className={styles.album_text}>
           <PlayListAndSongTitle
             isAlbum={props.isAlbum}
-            playlistName={props.playlistName}
-            artist={props.artist}
-            songName={props.songName}
+            primaryText={props.primaryText}
+            secondaryText={props.secondaryText}
             songs={props.songs}
             views={props.views}
           />
@@ -45,7 +47,11 @@ export default function SongAlbum(props: Props) {
         <div className={styles.image_container}>
           <img
             className={styles.albumImage_landScape}
-            src={props.imageSource}
+            src={
+              props.imageSource
+                ? props.imageSource
+                : "src/assets/static/images/errorImages/NoAlbumOrSong.webp"
+            }
             alt="Album Photo"
           />
           <img
@@ -57,9 +63,8 @@ export default function SongAlbum(props: Props) {
         <div className={styles.album_text}>
           <PlayListAndSongTitle
             isAlbum={props.isAlbum}
-            playlistName={props.playlistName}
-            artist={props.artist}
-            songName={props.songName}
+            primaryText={props.primaryText}
+            secondaryText={props.secondaryText}
             songs={props.songs}
             views={props.views}
           />
