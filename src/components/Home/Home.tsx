@@ -13,7 +13,7 @@ import SongAlbum from "../SongAlbum/SongAlbum";
 import ArtistProfile from "../ArtistProfile/ArtistProfile";
 import Buttons from "../Buttons/Buttons";
 import SongCard from "../SongCard/SongCard";
-import { useEffect, useState } from "react";
+import useFetchData from "../../customHooks/useFetchData";
 
 const API_URL = "https://api.audioboom.com/audio_clips";
 
@@ -23,43 +23,8 @@ type Props = {
   onSongClick: (id: number) => void;
 };
 
-type fetchTypes = {
-  id: number;
-  title: string;
-  description: string;
-  channel: {
-    urls: {
-      logo_image: {
-        original: string;
-      };
-    };
-  };
-  urls: {
-    high_mp3: string;
-  };
-};
-
 export default function PrincipalContent(props: Props) {
-  //States used for the data fetching and resolution of the promises
-  const [data, setData] = useState<fetchTypes[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState("");
-
-  useEffect(() => {
-    setIsLoading(true);
-    fetch(API_URL)
-      .then((res) => res.json())
-      .then((data) => {
-        setData(data.body.audio_clips);
-        console.log(data.body.audio_clips);
-      })
-      .catch(() => {
-        setError("Hubo un error de datos");
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
-  }, []);
+  const { data, isLoading, error } = useFetchData(API_URL, 1);
 
   if (isLoading) {
     return (

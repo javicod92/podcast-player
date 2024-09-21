@@ -19,6 +19,7 @@ type Props = {
 export default function SongAlbum(props: Props) {
   const audioRef = useRef<HTMLAudioElement>(null);
 
+  //This effect is used to play or pause the song if it is currently selected
   useEffect(() => {
     if (audioRef.current) {
       if (props.isPlaying) {
@@ -29,6 +30,7 @@ export default function SongAlbum(props: Props) {
     }
   }, [props.isPlaying]);
 
+  //This effect is used to restart the song in case it is a new one
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.currentTime = 0;
