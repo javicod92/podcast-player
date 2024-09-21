@@ -5,8 +5,8 @@ import UserReaction from "../UserReaction/UserReaction.tsx";
 type Props = {
   size: "smallest" | "small" | "medium" | "large";
   imageUrl: string;
-  songTitle: string;
-  artist: string;
+  primaryText: string;
+  secondaryText: string;
   views?: number;
   likes?: number;
 };
@@ -39,7 +39,9 @@ export default function SongCard(props: Props) {
                 : styles.songTitle_smallest
             }
           >
-            {props.songTitle}
+            {props.primaryText?.length > 20
+              ? props.primaryText?.slice(0, 20) + "..."
+              : props.primaryText}
           </p>
           <p
             className={
@@ -48,7 +50,10 @@ export default function SongCard(props: Props) {
                 : styles.artistDescription_smallest
             }
           >
-            {props.artist} {props.size !== "large" && " • Listen Again"}{" "}
+            {props.secondaryText?.length > 10
+              ? props.secondaryText.slice(0, 10) + "..."
+              : props.secondaryText}{" "}
+            {props.size !== "large" && " • Listen Again"}{" "}
             {props.size === "large" &&
               ` • ${convertNumber(props.views || 0)} views • ${convertNumber(
                 props.likes || 0

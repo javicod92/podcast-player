@@ -20,8 +20,8 @@ export default function PlaybackBar(props: Props) {
         />
         <SongCard
           size="large"
-          songTitle="Can't Stop the Feeling!"
-          artist="Calvin Harris"
+          primaryText="Can't Stop the Feeling!"
+          secondaryText="Calvin Harris"
           views={37000}
           likes={603}
           imageUrl="/src/assets/static/images/albumsImage/3b02630be867dbdbd629e9d32572a9b5.png"

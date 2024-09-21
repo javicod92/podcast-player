@@ -3,7 +3,6 @@ import FiltersChip from "../FiltersChip/FiltersChip";
 import {
   FilterList,
   similarTo,
-  quickPicks,
   recomendedAlbums,
 } from "../Logic/DataBaseSimulation";
 import CategoryTitle from "../CategoryTitle/CategoryTitle";
@@ -137,16 +136,14 @@ export default function PrincipalContent(props: Props) {
                 </div>
               </div>
               <div className={styles.quickPicks_songCards}>
-                {quickPicks.map((element) => {
+                {data.map((element) => {
                   return (
                     <SongCard
-                      key={element.key}
-                      size={element.size}
-                      imageUrl={element.imageUrl}
-                      songTitle={element.songTitle}
-                      artist={element.artist}
-                      views={element.views}
-                      likes={element.likes}
+                      key={element.id}
+                      size="small"
+                      imageUrl={element.channel.urls.logo_image.original}
+                      primaryText={element.title}
+                      secondaryText={element.description}
                     />
                   );
                 })}
