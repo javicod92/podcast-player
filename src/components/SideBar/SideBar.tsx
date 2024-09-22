@@ -93,8 +93,8 @@ export default function SideBar(props: Props) {
                 <SongCard
                   size={"smallest"}
                   imageUrl={item.imageUrl}
-                  songTitle={item.title}
-                  artist={item.description}
+                  primaryText={item.title}
+                  secondaryText={item.description}
                 />
               );
             })}

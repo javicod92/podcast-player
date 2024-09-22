@@ -24,8 +24,13 @@ type Props = {
 
 export default function PrincipalContent(props: Props) {
   const { data, isLoading, error } = useFetchData(API_URL, 1);
+  const {
+    data: data2,
+    isLoading: isLoading2,
+    error: error2,
+  } = useFetchData(API_URL, 2);
 
-  if (isLoading) {
+  if (isLoading || isLoading2) {
     return (
       <h1 style={{ display: "grid", placeContent: "center", width: "100%" }}>
         La página se está cargando...
@@ -33,7 +38,7 @@ export default function PrincipalContent(props: Props) {
     );
   }
 
-  if (error) {
+  if (error || error2) {
     alert("Hubo un error y la página no se cargó");
     return (
       <h1 style={{ display: "grid", placeContent: "center", width: "100%" }}>
@@ -136,7 +141,7 @@ export default function PrincipalContent(props: Props) {
                 </div>
               </div>
               <div className={styles.quickPicks_songCards}>
-                {data.map((element) => {
+                {data2.map((element) => {
                   return (
                     <SongCard
                       key={element.id}
