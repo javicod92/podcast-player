@@ -1,6 +1,7 @@
 import styles from "./SongCard.module.css";
 import convertNumber from "../Logic/convertNumber.ts";
 import UserReaction from "../UserReaction/UserReaction.tsx";
+import { useEffect, useRef } from "react";
 
 type Props = {
   size: "smallest" | "small" | "medium" | "large";
@@ -9,6 +10,10 @@ type Props = {
   secondaryText: string;
   views?: number;
   likes?: number;
+  audioSrc?: string;
+  handleClick?: () => void;
+  isPlaying?: boolean;
+  isCurrentSong?: boolean;
 };
 
 const className = {
@@ -19,8 +24,28 @@ const className = {
 };
 
 export default function SongCard(props: Props) {
+  const audioRef = useRef<HTMLAudioElement>(null);
+
+  //This effect is used to play or pause the song if it is currently selected
+  useEffect(() => {
+    if (audioRef.current) {
+      if (props.isPlaying) {
+        audioRef.current.play();
+      } else {
+        audioRef.current.pause();
+      }
+    }
+  }, [props.isPlaying]);
+
+  //This effect is used to restart the song in case it is a new one
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.currentTime = 0;
+    }
+  }, [props.isCurrentSong]);
+
   return (
-    <div className={styles[className[props.size]]}>
+    <div className={styles[className[props.size]]} onClick={props.handleClick}>
       <img
         src={props.imageUrl}
         alt="Artist Album"
@@ -64,6 +89,7 @@ export default function SongCard(props: Props) {
           <UserReaction />
         )}
       </div>
+      {props.audioSrc && <audio src={props.audioSrc} ref={audioRef} />}
     </div>
   );
 }

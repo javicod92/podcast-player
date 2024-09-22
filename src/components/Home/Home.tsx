@@ -149,6 +149,12 @@ export default function PrincipalContent(props: Props) {
                       imageUrl={element.channel.urls.logo_image.original}
                       primaryText={element.title}
                       secondaryText={element.description}
+                      audioSrc={element.urls.high_mp3}
+                      isPlaying={
+                        props.currentSongId === element.id && props.isPlaying
+                      }
+                      isCurrentSong={props.currentSongId === element.id}
+                      handleClick={() => props.onSongClick(element.id)}
                     />
                   );
                 })}
