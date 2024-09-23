@@ -16,10 +16,19 @@ import useFetchData from "../../customHooks/useFetchData";
 
 const API_URL = "https://api.audioboom.com/audio_clips";
 
+type audioTypes = {
+  id: number;
+  imageSource?: string;
+  secondaryText?: string;
+  primaryText: string;
+  songs?: number;
+  views?: number;
+};
+
 type Props = {
-  currentSongId: number | null;
+  currentSongId: number | undefined;
   isPlaying: boolean;
-  onSongClick: (id: number) => void;
+  onSongClick: (song: audioTypes) => void;
 };
 
 export default function PrincipalContent(props: Props) {
@@ -90,7 +99,7 @@ export default function PrincipalContent(props: Props) {
                           props.currentSongId === element.id && props.isPlaying
                         }
                         isCurrentSong={props.currentSongId === element.id}
-                        handleClick={() => props.onSongClick(element.id)}
+                        handleClick={props.onSongClick}
                       />
                     );
                   })
@@ -145,6 +154,7 @@ export default function PrincipalContent(props: Props) {
                   return (
                     <SongCard
                       key={element.id}
+                      id={element.id}
                       size="small"
                       imageUrl={element.channel.urls.logo_image.original}
                       primaryText={element.title}
@@ -154,7 +164,7 @@ export default function PrincipalContent(props: Props) {
                         props.currentSongId === element.id && props.isPlaying
                       }
                       isCurrentSong={props.currentSongId === element.id}
-                      handleClick={() => props.onSongClick(element.id)}
+                      handleClick={props.onSongClick}
                     />
                   );
                 })}

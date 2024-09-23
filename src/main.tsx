@@ -13,6 +13,15 @@ type ItemList = {
   imageUrl: string;
 };
 
+type audioTypes = {
+  id: number;
+  imageSource?: string;
+  secondaryText?: string;
+  primaryText: string;
+  songs?: number;
+  views?: number;
+};
+
 function Main() {
   //This status is used to open or close the Add Playlist or Home components
   const [isPlaylistAddOpen, setIsPlaylistAddOpen] = useState<boolean>(false);
@@ -21,14 +30,14 @@ function Main() {
   const [items, setItems] = useState<ItemList[]>(userPlaylist);
 
   //These states are used to identify the audio that is currently selected
-  const [currentSongId, setCurrentSongId] = useState<number | null>(null);
+  const [currentSong, setCurrentSong] = useState<audioTypes | null>(null);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
 
-  const handleSongClick = (id: number) => {
-    if (currentSongId === id) {
+  const handleSongClick = (song: audioTypes) => {
+    if (currentSong?.id === song.id) {
       setIsPlaying(!isPlaying);
     } else {
-      setCurrentSongId(id);
+      setCurrentSong(song);
       setIsPlaying(true);
     }
   };
@@ -39,10 +48,14 @@ function Main() {
 
   return (
     <Layout setIsPlaylistAddOpen={setIsPlaylistAddOpen} items={items}>
-      <PlaybackBar isPlaying={isPlaying} onPlayPause={handlePlayPause} />
+      <PlaybackBar
+        isPlaying={isPlaying}
+        onPlayPause={handlePlayPause}
+        currentSong={currentSong}
+      />
       {!isPlaylistAddOpen ? (
         <Home
-          currentSongId={currentSongId}
+          currentSongId={currentSong?.id}
           isPlaying={isPlaying}
           onSongClick={handleSongClick}
         />

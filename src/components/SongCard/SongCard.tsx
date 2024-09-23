@@ -4,16 +4,26 @@ import UserReaction from "../UserReaction/UserReaction.tsx";
 import { useEffect, useRef } from "react";
 
 type Props = {
+  id: number;
   size: "smallest" | "small" | "medium" | "large";
-  imageUrl: string;
+  imageUrl?: string;
   primaryText: string;
-  secondaryText: string;
+  secondaryText?: string;
   views?: number;
   likes?: number;
   audioSrc?: string;
-  handleClick?: () => void;
+  handleClick?: (song: audioTypes) => void;
   isPlaying?: boolean;
   isCurrentSong?: boolean;
+};
+
+type audioTypes = {
+  id: number;
+  imageSource?: string;
+  secondaryText?: string;
+  primaryText: string;
+  songs?: number;
+  views?: number;
 };
 
 const className = {
@@ -25,6 +35,19 @@ const className = {
 
 export default function SongCard(props: Props) {
   const audioRef = useRef<HTMLAudioElement>(null);
+
+  function handleClick() {
+    if (props.handleClick) {
+      props.handleClick({
+        id: props.id,
+        imageSource: props.imageUrl,
+        primaryText: props.primaryText,
+        secondaryText: props.secondaryText,
+        songs: props.likes,
+        views: props.views,
+      });
+    }
+  }
 
   //This effect is used to play or pause the song if it is currently selected
   useEffect(() => {
@@ -45,7 +68,7 @@ export default function SongCard(props: Props) {
   }, [props.isCurrentSong]);
 
   return (
-    <div className={styles[className[props.size]]} onClick={props.handleClick}>
+    <div className={styles[className[props.size]]} onClick={handleClick}>
       <img
         src={props.imageUrl}
         alt="Artist Album"
@@ -75,7 +98,7 @@ export default function SongCard(props: Props) {
                 : styles.artistDescription_smallest
             }
           >
-            {props.secondaryText?.length > 10
+            {props.secondaryText && props.secondaryText.length > 10
               ? props.secondaryText.slice(0, 10) + "..."
               : props.secondaryText}{" "}
             {props.size !== "large" && " • Listen Again"}{" "}

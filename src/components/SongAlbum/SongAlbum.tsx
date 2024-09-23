@@ -11,13 +11,33 @@ type Props = {
   audioSrc: string;
   songs?: number;
   views?: number;
-  handleClick: () => void;
+  handleClick: (song: audioTypes) => void;
   isPlaying: boolean;
   isCurrentSong: boolean;
 };
 
+type audioTypes = {
+  id: number;
+  imageSource?: string;
+  secondaryText?: string;
+  primaryText: string;
+  songs?: number;
+  views?: number;
+};
+
 export default function SongAlbum(props: Props) {
   const audioRef = useRef<HTMLAudioElement>(null);
+
+  function handleClick() {
+    props.handleClick({
+      id: props.id,
+      imageSource: props.imageSource,
+      primaryText: props.primaryText,
+      secondaryText: props.secondaryText,
+      songs: props.songs,
+      views: props.views,
+    });
+  }
 
   //This effect is used to play or pause the song if it is currently selected
   useEffect(() => {
@@ -69,7 +89,7 @@ export default function SongAlbum(props: Props) {
     );
   } else {
     return (
-      <div className={styles.songAlbum_container} onClick={props.handleClick}>
+      <div className={styles.songAlbum_container} onClick={handleClick}>
         <div className={styles.image_container}>
           <img
             className={styles.albumImage_landScape}

@@ -7,6 +7,16 @@ import ProgressBar from "../ProgressBar/ProgressBar.tsx";
 type Props = {
   isPlaying: boolean;
   onPlayPause: () => void;
+  currentSong: audioTypes | null;
+};
+
+type audioTypes = {
+  id: number;
+  imageSource?: string;
+  secondaryText?: string;
+  primaryText: string;
+  songs?: number;
+  views?: number;
 };
 
 export default function PlaybackBar(props: Props) {
@@ -18,14 +28,17 @@ export default function PlaybackBar(props: Props) {
           isPlaying={props.isPlaying}
           onPlayPause={props.onPlayPause}
         />
-        <SongCard
-          size="large"
-          primaryText="Can't Stop the Feeling!"
-          secondaryText="Calvin Harris"
-          views={37000}
-          likes={603}
-          imageUrl="/src/assets/static/images/albumsImage/3b02630be867dbdbd629e9d32572a9b5.png"
-        />
+        {props.currentSong && (
+          <SongCard
+            id={props.currentSong.id}
+            size="large"
+            primaryText={props.currentSong.primaryText}
+            secondaryText={props.currentSong.secondaryText}
+            views={37000}
+            likes={603}
+            imageUrl={props.currentSong.imageSource}
+          />
+        )}
         <SoundFunction />
       </div>
     </div>
