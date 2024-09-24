@@ -9,13 +9,18 @@ type Props = {
   currentSong: audioTypes | null;
   isPlaying: boolean;
   onPlayPause: () => void;
+  progress: number;
+  onProgressChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 export default function PlaybackBar(props: Props) {
   return (
     <div className={styles.playBar_content}>
       <div className={styles.inner_container}>
-        <ProgressBar />
+        <ProgressBar
+          progress={props.progress}
+          onProgressChange={props.onProgressChange}
+        />
         <MediaControls
           currentSong={props.currentSong}
           isPlaying={props.isPlaying}

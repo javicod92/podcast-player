@@ -1,23 +1,21 @@
 import styles from "./ProgressBar.module.css";
-import { useState } from "react";
 
-export default function ProgressBar() {
-  const [value, setValue] = useState<number>(0);
+type Props = {
+  progress: number;
+  onProgressChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+};
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(Number(event.target.value));
-  };
-
+export default function ProgressBar(props: Props) {
   return (
     <div className={styles.progresBar_container}>
       <input
-        onChange={handleChange}
+        onChange={props.onProgressChange}
         className={styles.progressRange}
         type="range"
         id="progressRange"
         min="0"
         max="100"
-        value={value}
+        value={props.progress}
         step=".1"
       />
     </div>

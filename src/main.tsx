@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./styles/main.css";
 import Layout from "./components/Layout/Layout.tsx";
@@ -6,35 +6,12 @@ import PlaybackBar from "./components/PlaybackBar/PlaybackBar.tsx";
 import Home from "./components/Home/Home.tsx";
 import PlaylistAdd from "./components/PlaylistAdd/PlaylistAdd.tsx";
 import { userPlaylist } from "./components/Logic/DataBaseSimulation.ts";
+import { audioTypes } from "./components/Logic/audioTypes.ts";
 
 type ItemList = {
   title: string;
   description: string;
   imageUrl: string;
-};
-
-type audioTypes = {
-  id: number;
-  title: string;
-  description: string;
-  user: {
-    urls: {
-      profile_image: {
-        original: string;
-      };
-    };
-  };
-  channel: {
-    urls: {
-      logo_image: {
-        original: string;
-      };
-    };
-  };
-  duration: number;
-  urls: {
-    high_mp3: string;
-  };
 };
 
 function Main() {
@@ -47,7 +24,22 @@ function Main() {
   //These states are used to identify the audio that is currently selected
   const [currentSong, setCurrentSong] = useState<audioTypes | null>(null);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
+  const [progress, setProgress] = useState<number>(0);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    const updateProgress = () => {
+      setProgress((audio.currentTime / audio.duration) * 100);
+    };
+
+    audio.addEventListener("timeupdate", updateProgress);
+    return () => {
+      audio.removeEventListener("timeupdate", updateProgress);
+    };
+  }, []);
 
   function handlePlayPause() {
     if (isPlaying) {
@@ -67,12 +59,24 @@ function Main() {
     setIsPlaying(true);
   }
 
+  function handleProgressChange(event: React.ChangeEvent<HTMLInputElement>) {
+    const newProgress = Number(event.target.value);
+    setProgress(newProgress);
+
+    if (audioRef.current) {
+      audioRef.current.currentTime =
+        (newProgress / 100) * audioRef.current.duration;
+    }
+  }
+
   return (
     <Layout setIsPlaylistAddOpen={setIsPlaylistAddOpen} items={items}>
       <PlaybackBar
         currentSong={currentSong}
         isPlaying={isPlaying}
         onPlayPause={handlePlayPause}
+        progress={progress}
+        onProgressChange={handleProgressChange}
       />
       {!isPlaylistAddOpen ? (
         <Home
