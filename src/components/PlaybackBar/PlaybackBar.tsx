@@ -28,6 +28,7 @@ type audioTypes = {
       };
     };
   };
+  duration: number;
   urls: {
     high_mp3: string;
   };
@@ -39,6 +40,7 @@ export default function PlaybackBar(props: Props) {
       <div className={styles.inner_container}>
         <ProgressBar />
         <MediaControls
+          currentSong={props.currentSong}
           isPlaying={props.isPlaying}
           onPlayPause={props.onPlayPause}
         />

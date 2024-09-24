@@ -31,6 +31,7 @@ type audioTypes = {
       };
     };
   };
+  duration: number;
   urls: {
     high_mp3: string;
   };
