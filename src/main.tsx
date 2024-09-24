@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./styles/main.css";
 import Layout from "./components/Layout/Layout.tsx";
@@ -15,11 +15,18 @@ type ItemList = {
 
 type audioTypes = {
   id: number;
-  imageSource?: string;
-  secondaryText?: string;
-  primaryText: string;
-  songs?: number;
-  views?: number;
+  title: string;
+  description: string;
+  channel: {
+    urls: {
+      logo_image: {
+        original: string;
+      };
+    };
+  };
+  urls: {
+    high_mp3: string;
+  };
 };
 
 function Main() {
@@ -32,19 +39,25 @@ function Main() {
   //These states are used to identify the audio that is currently selected
   const [currentSong, setCurrentSong] = useState<audioTypes | null>(null);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  const handleSongClick = (song: audioTypes) => {
-    if (currentSong?.id === song.id) {
-      setIsPlaying(!isPlaying);
+  function handlePlayPause() {
+    if (isPlaying) {
+      audioRef.current?.pause();
     } else {
-      setCurrentSong(song);
-      setIsPlaying(true);
+      audioRef.current?.play();
     }
-  };
-
-  const handlePlayPause = () => {
     setIsPlaying(!isPlaying);
-  };
+  }
+
+  function handleSongSelect(song: audioTypes) {
+    setCurrentSong(song);
+    if (audioRef.current) {
+      audioRef.current.src = song.urls.high_mp3;
+      audioRef.current.play();
+    }
+    setIsPlaying(true);
+  }
 
   return (
     <Layout setIsPlaylistAddOpen={setIsPlaylistAddOpen} items={items}>
@@ -57,7 +70,7 @@ function Main() {
         <Home
           currentSongId={currentSong?.id}
           isPlaying={isPlaying}
-          onSongClick={handleSongClick}
+          onSongSelect={handleSongSelect}
         />
       ) : (
         <PlaylistAdd
@@ -65,6 +78,7 @@ function Main() {
           setIsPlaylistAddOpen={setIsPlaylistAddOpen}
         />
       )}
+      <audio ref={audioRef} />
     </Layout>
   );
 }

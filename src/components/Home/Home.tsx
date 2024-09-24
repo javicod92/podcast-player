@@ -18,17 +18,24 @@ const API_URL = "https://api.audioboom.com/audio_clips";
 
 type audioTypes = {
   id: number;
-  imageSource?: string;
-  secondaryText?: string;
-  primaryText: string;
-  songs?: number;
-  views?: number;
+  title: string;
+  description: string;
+  channel: {
+    urls: {
+      logo_image: {
+        original: string;
+      };
+    };
+  };
+  urls: {
+    high_mp3: string;
+  };
 };
 
 type Props = {
   currentSongId: number | undefined;
   isPlaying: boolean;
-  onSongClick: (song: audioTypes) => void;
+  onSongSelect: (song: audioTypes) => void;
 };
 
 export default function PrincipalContent(props: Props) {
@@ -95,11 +102,10 @@ export default function PrincipalContent(props: Props) {
                         primaryText={element.title}
                         secondaryText={element.description}
                         audioSrc={element.urls.high_mp3}
+                        onSongSelect={() => props.onSongSelect(element)}
                         isPlaying={
                           props.currentSongId === element.id && props.isPlaying
                         }
-                        isCurrentSong={props.currentSongId === element.id}
-                        handleClick={props.onSongClick}
                       />
                     );
                   })
@@ -164,7 +170,7 @@ export default function PrincipalContent(props: Props) {
                         props.currentSongId === element.id && props.isPlaying
                       }
                       isCurrentSong={props.currentSongId === element.id}
-                      handleClick={props.onSongClick}
+                      handleClick={() => "hola"}
                     />
                   );
                 })}

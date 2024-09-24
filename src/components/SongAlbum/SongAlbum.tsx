@@ -1,6 +1,5 @@
 import styles from "./SongAlbum.module.css";
 import PlayListAndSongTitle from "../PlaylistAndSongTitle/PlayListAndSongTitle.tsx";
-import { useEffect, useRef } from "react";
 
 type Props = {
   id: number;
@@ -11,52 +10,11 @@ type Props = {
   audioSrc: string;
   songs?: number;
   views?: number;
-  handleClick: (song: audioTypes) => void;
+  onSongSelect: () => void;
   isPlaying: boolean;
-  isCurrentSong: boolean;
-};
-
-type audioTypes = {
-  id: number;
-  imageSource?: string;
-  secondaryText?: string;
-  primaryText: string;
-  songs?: number;
-  views?: number;
 };
 
 export default function SongAlbum(props: Props) {
-  const audioRef = useRef<HTMLAudioElement>(null);
-
-  function handleClick() {
-    props.handleClick({
-      id: props.id,
-      imageSource: props.imageSource,
-      primaryText: props.primaryText,
-      secondaryText: props.secondaryText,
-      songs: props.songs,
-      views: props.views,
-    });
-  }
-
-  //This effect is used to play or pause the song if it is currently selected
-  useEffect(() => {
-    if (audioRef.current) {
-      if (props.isPlaying) {
-        audioRef.current.play();
-      } else {
-        audioRef.current.pause();
-      }
-    }
-  }, [props.isPlaying]);
-
-  //This effect is used to restart the song in case it is a new one
-  useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.currentTime = 0;
-    }
-  }, [props.isCurrentSong]);
-
   if (props.isAlbum) {
     return (
       <div className={styles.songAlbum_container}>
@@ -89,7 +47,7 @@ export default function SongAlbum(props: Props) {
     );
   } else {
     return (
-      <div className={styles.songAlbum_container} onClick={handleClick}>
+      <div className={styles.songAlbum_container} onClick={props.onSongSelect}>
         <div className={styles.image_container}>
           <img
             className={styles.albumImage_landScape}
@@ -119,7 +77,6 @@ export default function SongAlbum(props: Props) {
             views={props.views}
           />
         </div>
-        <audio src={props.audioSrc} ref={audioRef} />
       </div>
     );
   }
