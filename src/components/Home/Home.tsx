@@ -13,32 +13,9 @@ import ArtistProfile from "../ArtistProfile/ArtistProfile";
 import Buttons from "../Buttons/Buttons";
 import SongCard from "../SongCard/SongCard";
 import useFetchData from "../../customHooks/useFetchData";
+import { audioTypes } from "../Logic/audioTypes";
 
 const API_URL = "https://api.audioboom.com/audio_clips";
-
-type audioTypes = {
-  id: number;
-  title: string;
-  description: string;
-  user: {
-    urls: {
-      profile_image: {
-        original: string;
-      };
-    };
-  };
-  channel: {
-    urls: {
-      logo_image: {
-        original: string;
-      };
-    };
-  };
-  duration: number;
-  urls: {
-    high_mp3: string;
-  };
-};
 
 type Props = {
   currentSongId: number | undefined;

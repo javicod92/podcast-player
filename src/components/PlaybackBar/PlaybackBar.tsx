@@ -3,35 +3,12 @@ import MediaControls from "../MediaControls/MediaControls.tsx";
 import SongCard from "../SongCard/SongCard.tsx";
 import SoundFunction from "../SoundFunction/SoundFunction.tsx";
 import ProgressBar from "../ProgressBar/ProgressBar.tsx";
+import { audioTypes } from "../Logic/audioTypes.ts";
 
 type Props = {
   currentSong: audioTypes | null;
   isPlaying: boolean;
   onPlayPause: () => void;
-};
-
-type audioTypes = {
-  id: number;
-  title: string;
-  description: string;
-  user: {
-    urls: {
-      profile_image: {
-        original: string;
-      };
-    };
-  };
-  channel: {
-    urls: {
-      logo_image: {
-        original: string;
-      };
-    };
-  };
-  duration: number;
-  urls: {
-    high_mp3: string;
-  };
 };
 
 export default function PlaybackBar(props: Props) {

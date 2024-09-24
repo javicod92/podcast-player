@@ -1,33 +1,10 @@
 import { useState, useEffect } from "react";
-
-type fetchTypes = {
-  id: number;
-  title: string;
-  description: string;
-  user: {
-    urls: {
-      profile_image: {
-        original: string;
-      };
-    };
-  };
-  channel: {
-    urls: {
-      logo_image: {
-        original: string;
-      };
-    };
-  };
-  duration: number;
-  urls: {
-    high_mp3: string;
-  };
-};
+import { audioTypes } from "../components/Logic/audioTypes";
 
 //Data fetch whith page numeration
 export default function useFetchData(url: string, page: number) {
   //States used for the data fetching and resolution of the promises
-  const [data, setData] = useState<fetchTypes[]>([]);
+  const [data, setData] = useState<audioTypes[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
 
