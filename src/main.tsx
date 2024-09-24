@@ -17,6 +17,13 @@ type audioTypes = {
   id: number;
   title: string;
   description: string;
+  user: {
+    urls: {
+      profile_image: {
+        original: string;
+      };
+    };
+  };
   channel: {
     urls: {
       logo_image: {
@@ -62,9 +69,9 @@ function Main() {
   return (
     <Layout setIsPlaylistAddOpen={setIsPlaylistAddOpen} items={items}>
       <PlaybackBar
+        currentSong={currentSong}
         isPlaying={isPlaying}
         onPlayPause={handlePlayPause}
-        currentSong={currentSong}
       />
       {!isPlaylistAddOpen ? (
         <Home

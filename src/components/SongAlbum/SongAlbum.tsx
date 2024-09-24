@@ -5,6 +5,7 @@ type Props = {
   id: number;
   isAlbum: boolean;
   imageSource?: string;
+  imageAlternative: string;
   secondaryText?: string;
   primaryText: string;
   audioSrc: string;
@@ -21,11 +22,7 @@ export default function SongAlbum(props: Props) {
         <div className={styles.image_container}>
           <img
             className={styles.albumImage}
-            src={
-              props.imageSource
-                ? props.imageSource
-                : "src/assets/static/images/errorImages/NoAlbumOrSong.webp"
-            }
+            src={props.imageSource ? props.imageSource : props.imageAlternative}
             alt="Album Photo"
           />
           <img
@@ -51,11 +48,7 @@ export default function SongAlbum(props: Props) {
         <div className={styles.image_container}>
           <img
             className={styles.albumImage_landScape}
-            src={
-              props.imageSource
-                ? props.imageSource
-                : "src/assets/static/images/errorImages/NoAlbumOrSong.webp"
-            }
+            src={props.imageSource ? props.imageSource : props.imageAlternative}
             alt="Album Photo"
           />
           <img

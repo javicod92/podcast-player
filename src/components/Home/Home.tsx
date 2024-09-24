@@ -20,6 +20,13 @@ type audioTypes = {
   id: number;
   title: string;
   description: string;
+  user: {
+    urls: {
+      profile_image: {
+        original: string;
+      };
+    };
+  };
   channel: {
     urls: {
       logo_image: {
@@ -99,6 +106,9 @@ export default function PrincipalContent(props: Props) {
                         id={element.id}
                         isAlbum={false}
                         imageSource={element.channel.urls.logo_image.original}
+                        imageAlternative={
+                          element.user.urls.profile_image.original
+                        }
                         primaryText={element.title}
                         secondaryText={element.description}
                         audioSrc={element.urls.high_mp3}
@@ -163,14 +173,13 @@ export default function PrincipalContent(props: Props) {
                       id={element.id}
                       size="small"
                       imageUrl={element.channel.urls.logo_image.original}
+                      imageAlternative={
+                        element.user.urls.profile_image.original
+                      }
                       primaryText={element.title}
                       secondaryText={element.description}
                       audioSrc={element.urls.high_mp3}
-                      isPlaying={
-                        props.currentSongId === element.id && props.isPlaying
-                      }
-                      isCurrentSong={props.currentSongId === element.id}
-                      handleClick={() => "hola"}
+                      onSongSelect={() => props.onSongSelect(element)}
                     />
                   );
                 })}

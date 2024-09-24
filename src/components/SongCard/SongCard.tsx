@@ -1,29 +1,18 @@
 import styles from "./SongCard.module.css";
 import convertNumber from "../Logic/convertNumber.ts";
 import UserReaction from "../UserReaction/UserReaction.tsx";
-import { useEffect, useRef } from "react";
 
 type Props = {
   id: number;
   size: "smallest" | "small" | "medium" | "large";
   imageUrl?: string;
+  imageAlternative: string;
   primaryText: string;
   secondaryText?: string;
   views?: number;
   likes?: number;
   audioSrc?: string;
-  handleClick?: (song: audioTypes) => void;
-  isPlaying?: boolean;
-  isCurrentSong?: boolean;
-};
-
-type audioTypes = {
-  id: number;
-  imageSource?: string;
-  secondaryText?: string;
-  primaryText: string;
-  songs?: number;
-  views?: number;
+  onSongSelect?: () => void;
 };
 
 const className = {
@@ -34,43 +23,10 @@ const className = {
 };
 
 export default function SongCard(props: Props) {
-  const audioRef = useRef<HTMLAudioElement>(null);
-
-  function handleClick() {
-    if (props.handleClick) {
-      props.handleClick({
-        id: props.id,
-        imageSource: props.imageUrl,
-        primaryText: props.primaryText,
-        secondaryText: props.secondaryText,
-        songs: props.likes,
-        views: props.views,
-      });
-    }
-  }
-
-  //This effect is used to play or pause the song if it is currently selected
-  useEffect(() => {
-    if (audioRef.current) {
-      if (props.isPlaying) {
-        audioRef.current.play();
-      } else {
-        audioRef.current.pause();
-      }
-    }
-  }, [props.isPlaying]);
-
-  //This effect is used to restart the song in case it is a new one
-  useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.currentTime = 0;
-    }
-  }, [props.isCurrentSong]);
-
   return (
-    <div className={styles[className[props.size]]} onClick={handleClick}>
+    <div className={styles[className[props.size]]} onClick={props.onSongSelect}>
       <img
-        src={props.imageUrl}
+        src={props.imageUrl ? props.imageUrl : props.imageAlternative}
         alt="Artist Album"
         className={
           props.size !== "smallest"
@@ -112,7 +68,6 @@ export default function SongCard(props: Props) {
           <UserReaction />
         )}
       </div>
-      {props.audioSrc && <audio src={props.audioSrc} ref={audioRef} />}
     </div>
   );
 }

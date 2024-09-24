@@ -4,6 +4,13 @@ type fetchTypes = {
   id: number;
   title: string;
   description: string;
+  user: {
+    urls: {
+      profile_image: {
+        original: string;
+      };
+    };
+  };
   channel: {
     urls: {
       logo_image: {
