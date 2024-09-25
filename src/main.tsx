@@ -32,7 +32,9 @@ function Main() {
     if (!audio) return;
 
     const updateProgress = () => {
-      setProgress((audio.currentTime / audio.duration) * 100);
+      if (audio.duration > 0) {
+        setProgress((audio.currentTime / audio.duration) * 100);
+      }
     };
 
     audio.addEventListener("timeupdate", updateProgress);
@@ -52,6 +54,7 @@ function Main() {
 
   function handleSongSelect(song: audioTypes) {
     setCurrentSong(song);
+    setProgress(0);
     if (audioRef.current) {
       audioRef.current.src = song.urls.high_mp3;
       audioRef.current.play();
