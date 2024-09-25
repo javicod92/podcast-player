@@ -61,12 +61,16 @@ function Main() {
   }, []);
 
   function handlePlayPause() {
-    if (isPlaying) {
-      audioRef.current?.pause();
+    if (currentSong) {
+      if (isPlaying) {
+        audioRef.current?.pause();
+      } else {
+        audioRef.current?.play();
+      }
+      setIsPlaying(!isPlaying);
     } else {
-      audioRef.current?.play();
+      handleSongSelect(dataSongs[0]);
     }
-    setIsPlaying(!isPlaying);
   }
 
   function handleNextAudio() {
