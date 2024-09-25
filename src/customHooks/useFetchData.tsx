@@ -6,7 +6,7 @@ export default function useFetchData(url: string, page: number) {
   //States used for the data fetching and resolution of the promises
   const [data, setData] = useState<audioTypes[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setError] = useState<boolean>(false);
 
   useEffect(() => {
     setIsLoading(true);
@@ -16,7 +16,7 @@ export default function useFetchData(url: string, page: number) {
         setData(data.body.audio_clips);
       })
       .catch(() => {
-        setError("Hubo un error de datos");
+        setError(true);
       })
       .finally(() => {
         setIsLoading(false);

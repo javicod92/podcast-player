@@ -7,6 +7,9 @@ import Home from "./components/Home/Home.tsx";
 import PlaylistAdd from "./components/PlaylistAdd/PlaylistAdd.tsx";
 import { userPlaylist } from "./components/Logic/DataBaseSimulation.ts";
 import { audioTypes } from "./components/Logic/audioTypes.ts";
+import useFetchData from "./customHooks/useFetchData.tsx";
+
+const API_URL = "https://api.audioboom.com/audio_clips";
 
 type ItemList = {
   title: string;
@@ -21,7 +24,21 @@ function Main() {
   //This state is in main function becuse I need to send it to Layout and PlaylistAdd components
   const [items, setItems] = useState<ItemList[]>(userPlaylist);
 
-  //These states are used to identify the audio that is currently selected
+  //These states and code lines are used to manage sound playback
+  const {
+    data: data1,
+    isLoading: isLoading1,
+    error: error1,
+  } = useFetchData(API_URL, 1);
+  const {
+    data: data2,
+    isLoading: isLoading2,
+    error: error2,
+  } = useFetchData(API_URL, 2);
+  const dataSongs = [...data1, ...data2];
+  const isLoading = isLoading1 || isLoading2;
+  const error = error1 || error2;
+
   const [currentSong, setCurrentSong] = useState<audioTypes | null>(null);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [progress, setProgress] = useState<number>(0);
@@ -52,6 +69,36 @@ function Main() {
     setIsPlaying(!isPlaying);
   }
 
+  function handleNextAudio() {
+    if (currentSong) {
+      const audioIndex = dataSongs.findIndex(
+        (audio) => audio.id === currentSong.id
+      );
+      if (audioIndex < dataSongs.length - 1) {
+        console.log(`El indice de la cancion es el: ${audioIndex}`);
+        handleSongSelect(dataSongs[audioIndex + 1]);
+      }
+      if (audioIndex === dataSongs.length - 1) {
+        handleSongSelect(dataSongs[0]);
+      }
+    }
+  }
+
+  function handlePreviousAudio() {
+    if (currentSong) {
+      const audioIndex = dataSongs.findIndex(
+        (audio) => audio.id === currentSong.id
+      );
+      if (audioIndex > 0) {
+        console.log(`El indice de la cancion es el: ${audioIndex}`);
+        handleSongSelect(dataSongs[audioIndex - 1]);
+      }
+      if (audioIndex === 0) {
+        handleSongSelect(dataSongs[dataSongs.length - 1]);
+      }
+    }
+  }
+
   function handleSongSelect(song: audioTypes) {
     setCurrentSong(song);
     setProgress(0);
@@ -80,9 +127,14 @@ function Main() {
         onPlayPause={handlePlayPause}
         progress={progress}
         onProgressChange={handleProgressChange}
+        handleNextAudio={handleNextAudio}
+        handlePreviousAudio={handlePreviousAudio}
       />
       {!isPlaylistAddOpen ? (
         <Home
+          dataSongs={dataSongs}
+          isLoading={isLoading}
+          error={error}
           currentSongId={currentSong?.id}
           isPlaying={isPlaying}
           onSongSelect={handleSongSelect}

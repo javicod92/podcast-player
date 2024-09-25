@@ -11,6 +11,8 @@ type Props = {
   onPlayPause: () => void;
   progress: number;
   onProgressChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  handleNextAudio(): void;
+  handlePreviousAudio(): void;
 };
 
 export default function PlaybackBar(props: Props) {
@@ -25,6 +27,8 @@ export default function PlaybackBar(props: Props) {
           currentSong={props.currentSong}
           isPlaying={props.isPlaying}
           onPlayPause={props.onPlayPause}
+          handleNextAudio={props.handleNextAudio}
+          handlePreviousAudio={props.handlePreviousAudio}
         />
         {props.currentSong && (
           <SongCard

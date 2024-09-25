@@ -5,6 +5,8 @@ type Props = {
   currentSong: audioTypes | null;
   isPlaying: boolean;
   onPlayPause: () => void;
+  handleNextAudio(): void;
+  handlePreviousAudio(): void;
 };
 
 export default function MediaControls(props: Props) {
@@ -16,7 +18,7 @@ export default function MediaControls(props: Props) {
 
   return (
     <div className={styles.media_container}>
-      <button id="previous_button">
+      <button id="previous_button" onClick={props.handlePreviousAudio}>
         <img src="/src/assets/static/svgs/skip_previous.svg" alt="previous" />
       </button>
       <button id="button_play" onClick={props.onPlayPause}>
@@ -29,7 +31,7 @@ export default function MediaControls(props: Props) {
           alt="play/pause"
         />
       </button>
-      <button id="next_button">
+      <button id="next_button" onClick={props.handleNextAudio}>
         <img src="/src/assets/static/svgs/skip_next.svg" alt="next" />
       </button>
       {props.currentSong?.duration && (
