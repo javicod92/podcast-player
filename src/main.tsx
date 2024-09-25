@@ -45,6 +45,13 @@ function Main() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
+    if (!currentSong && dataSongs.length > 0 && audioRef.current) {
+      setCurrentSong(dataSongs[0]);
+      audioRef.current.src = dataSongs[0].urls.high_mp3;
+    }
+  }, [dataSongs]);
+
+  useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
 
@@ -68,8 +75,6 @@ function Main() {
         audioRef.current?.play();
       }
       setIsPlaying(!isPlaying);
-    } else {
-      handleSongSelect(dataSongs[0]);
     }
   }
 
