@@ -32,18 +32,18 @@ export default function SideBar(props: Props) {
             <MenuItem
               primarytext="Principal"
               buttonSize="vertically"
-              leftIconUrl="/assets/static/svgs/house.svg"
+              leftIconUrl="src/assets/static/svgs/house.svg"
               isSelected
             />
             <MenuItem
               primarytext="Explorar"
               buttonSize="vertically"
-              leftIconUrl="/assets/static/svgs/explore.svg"
+              leftIconUrl="src/assets/static/svgs/explore.svg"
             />
             <MenuItem
               primarytext="Biblioteca"
               buttonSize="vertically"
-              leftIconUrl="/assets/static/svgs/library_music.svg"
+              leftIconUrl="src/assets/static/svgs/library_music.svg"
             />
           </div>
         </div>
@@ -61,19 +61,19 @@ export default function SideBar(props: Props) {
             <MenuItem
               primarytext="Principal"
               buttonSize="horizontally"
-              leftIconUrl="/assets/static/svgs/house.svg"
+              leftIconUrl="src/assets/static/svgs/house.svg"
               hasRightIcon
               isSelected
             />
             <MenuItem
               primarytext="Explorar"
               buttonSize="horizontally"
-              leftIconUrl="/assets/static/svgs/explore.svg"
+              leftIconUrl="src/assets/static/svgs/explore.svg"
             />
             <MenuItem
               primarytext="Biblioteca"
               buttonSize="horizontally"
-              leftIconUrl="/assets/static/svgs/library_music.svg"
+              leftIconUrl="src/assets/static/svgs/library_music.svg"
             />
           </div>
         </div>
@@ -82,7 +82,7 @@ export default function SideBar(props: Props) {
             onClickFn={togglePlayListAdd}
             type="button"
             text="Nueva Playlist"
-            iconUrl="/assets/static/svgs/plus.svg"
+            iconUrl="src/assets/static/svgs/plus.svg"
             isSelected
           />
         </div>

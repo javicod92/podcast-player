@@ -47,7 +47,7 @@ export default function MenuItem(props: Props) {
         {props.secondaryText && <p>{props.secondaryText}</p>}
       </div>
       {props.hasRightIcon && (
-        <img src="/assets/static/svgs/iconForMenu.svg" alt="Icon for Menu" />
+        <img src="src/assets/static/svgs/iconForMenu.svg" alt="Icon for Menu" />
       )}
     </button>
   );

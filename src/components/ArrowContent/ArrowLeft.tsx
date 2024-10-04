@@ -6,8 +6,8 @@ type Props = {
 
 export default function ArrowLeft(props: Props) {
   const src: string = props.isSelected
-    ? "/assets/static/svgs/selected_arrow_left.svg"
-    : "/assets/static/svgs/unselected_arrow_left.svg";
+    ? "src/assets/static/svgs/selected_arrow_left.svg"
+    : "src/assets/static/svgs/unselected_arrow_left.svg";
 
   return (
     <button className={styles.arrow_left}>
