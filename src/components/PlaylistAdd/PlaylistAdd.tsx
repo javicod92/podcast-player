@@ -76,7 +76,7 @@ export default function PlaylistAdd(props: Props) {
           }
           type="submit"
           text="Agregar Playlist"
-          iconUrl="src/assets/static/svgs/plus.svg"
+          iconUrl="/assets/static/svgs/plus.svg"
           isSelected
         />
       </form>

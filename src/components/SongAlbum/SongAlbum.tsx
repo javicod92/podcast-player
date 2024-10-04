@@ -23,7 +23,7 @@ export default function SongAlbum(props: Props) {
           />
           <img
             className={styles.albumPlay}
-            src="src/assets/static/svgs/play_circle.svg"
+            src="/assets/static/svgs/play_circle.svg"
             alt="Paly Circle"
           />
         </div>
@@ -50,7 +50,7 @@ export default function SongAlbum(props: Props) {
           />
           <img
             className={styles.albumPlay}
-            src="src/assets/static/svgs/play_circle.svg"
+            src="/assets/static/svgs/play_circle.svg"
             alt="Paly Circle"
           />
         </div>
