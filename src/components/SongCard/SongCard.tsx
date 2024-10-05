@@ -3,10 +3,10 @@ import convertNumber from "../Logic/convertNumber.ts";
 import UserReaction from "../UserReaction/UserReaction.tsx";
 
 type Props = {
-  id: number;
+  id?: number;
   size: "smallest" | "small" | "medium" | "large";
   imageUrl?: string;
-  imageAlternative: string;
+  imageAlternative?: string;
   primaryText: string;
   secondaryText?: string;
   views?: number;
