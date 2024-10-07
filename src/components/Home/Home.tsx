@@ -2,9 +2,7 @@ import styles from "./Home.module.css";
 import FiltersChip from "../FiltersChip/FiltersChip";
 import {
   FilterList,
-  ListenAgain,
   similarTo,
-  quickPicks,
   recomendedAlbums,
 } from "../Logic/DataBaseSimulation";
 import CategoryTitle from "../CategoryTitle/CategoryTitle";
@@ -14,8 +12,35 @@ import SongAlbum from "../SongAlbum/SongAlbum";
 import ArtistProfile from "../ArtistProfile/ArtistProfile";
 import Buttons from "../Buttons/Buttons";
 import SongCard from "../SongCard/SongCard";
+import { audioTypes } from "../Logic/audioTypes";
 
-export default function PrincipalContent() {
+type Props = {
+  dataSongs: audioTypes[];
+  isLoading: boolean;
+  error: boolean;
+  currentSongId: number | undefined;
+  isPlaying: boolean;
+  onSongSelect: (song: audioTypes) => void;
+};
+
+export default function PrincipalContent(props: Props) {
+  if (props.isLoading) {
+    return (
+      <h1 style={{ display: "grid", placeContent: "center", width: "100%" }}>
+        La página se está cargando...
+      </h1>
+    );
+  }
+
+  if (props.error) {
+    alert("Hubo un error y la página no se cargó");
+    return (
+      <h1 style={{ display: "grid", placeContent: "center", width: "100%" }}>
+        Hubo un error y la página no se cargó
+      </h1>
+    );
+  }
+
   return (
     <div className={styles.page_container}>
       <div className={styles.page_border_top_bottom}>
@@ -44,20 +69,28 @@ export default function PrincipalContent() {
                 </div>
               </div>
               <div className={styles.listenAgain_content_albums}>
-                {ListenAgain.map((element) => {
-                  return (
-                    <SongAlbum
-                      key={element.key}
-                      isAlbum={element.isAlbum}
-                      imageSource={element.imageSource}
-                      artist={element.artist}
-                      playlistName={element.playlistName}
-                      songName={element.songName}
-                      songs={element.songs}
-                      views={element.views}
-                    />
-                  );
-                })}
+                {props.dataSongs
+                  .map((element) => {
+                    return (
+                      <SongAlbum
+                        key={element.id}
+                        id={element.id}
+                        isAlbum={false}
+                        imageSource={element.channel.urls.logo_image.original}
+                        imageAlternative={
+                          element.user.urls.profile_image.original
+                        }
+                        primaryText={element.title}
+                        secondaryText={element.description}
+                        audioSrc={element.urls.high_mp3}
+                        onSongSelect={() => props.onSongSelect(element)}
+                        isPlaying={
+                          props.currentSongId === element.id && props.isPlaying
+                        }
+                      />
+                    );
+                  })
+                  .slice(0, 10)}
               </div>
             </section>
             <section id="similarTo" className={styles.similarTo_container}>
@@ -104,19 +137,25 @@ export default function PrincipalContent() {
                 </div>
               </div>
               <div className={styles.quickPicks_songCards}>
-                {quickPicks.map((element) => {
-                  return (
-                    <SongCard
-                      key={element.key}
-                      size={element.size}
-                      imageUrl={element.imageUrl}
-                      songTitle={element.songTitle}
-                      artist={element.artist}
-                      views={element.views}
-                      likes={element.likes}
-                    />
-                  );
-                })}
+                {props.dataSongs
+                  .map((element) => {
+                    return (
+                      <SongCard
+                        key={element.id}
+                        id={element.id}
+                        size="small"
+                        imageUrl={element.channel.urls.logo_image.original}
+                        imageAlternative={
+                          element.user.urls.profile_image.original
+                        }
+                        primaryText={element.title}
+                        secondaryText={element.description}
+                        audioSrc={element.urls.high_mp3}
+                        onSongSelect={() => props.onSongSelect(element)}
+                      />
+                    );
+                  })
+                  .slice(20, 40)}
               </div>
             </section>
             <section

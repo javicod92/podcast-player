@@ -3,12 +3,16 @@ import convertNumber from "../Logic/convertNumber.ts";
 import UserReaction from "../UserReaction/UserReaction.tsx";
 
 type Props = {
+  id?: number;
   size: "smallest" | "small" | "medium" | "large";
-  imageUrl: string;
-  songTitle: string;
-  artist: string;
+  imageUrl?: string;
+  imageAlternative?: string;
+  primaryText: string;
+  secondaryText?: string;
   views?: number;
   likes?: number;
+  audioSrc?: string;
+  onSongSelect?: () => void;
 };
 
 const className = {
@@ -20,9 +24,9 @@ const className = {
 
 export default function SongCard(props: Props) {
   return (
-    <div className={styles[className[props.size]]}>
+    <div className={styles[className[props.size]]} onClick={props.onSongSelect}>
       <img
-        src={props.imageUrl}
+        src={props.imageUrl ? props.imageUrl : props.imageAlternative}
         alt="Artist Album"
         className={
           props.size !== "smallest"
@@ -39,7 +43,9 @@ export default function SongCard(props: Props) {
                 : styles.songTitle_smallest
             }
           >
-            {props.songTitle}
+            {props.primaryText?.length > 20
+              ? props.primaryText?.slice(0, 20) + "..."
+              : props.primaryText}
           </p>
           <p
             className={
@@ -48,7 +54,10 @@ export default function SongCard(props: Props) {
                 : styles.artistDescription_smallest
             }
           >
-            {props.artist} {props.size !== "large" && " • Listen Again"}{" "}
+            {props.secondaryText && props.secondaryText.length > 10
+              ? props.secondaryText.slice(0, 10) + "..."
+              : props.secondaryText}{" "}
+            {props.size !== "large" && " • Listen Again"}{" "}
             {props.size === "large" &&
               ` • ${convertNumber(props.views || 0)} views • ${convertNumber(
                 props.likes || 0
