@@ -11,7 +11,7 @@ export default function CloseBtn(props: Props) {
       title="Cerrar"
       onClick={props.handlButton}
     >
-      <img src="src/assets/static/svgs/x.svg" alt="Close" />
+      <img src="/assets/static/svgs/x.svg" alt="Close" />
     </button>
   );
 }

@@ -130,7 +130,7 @@ export default function PrincipalContent(props: Props) {
                   <Buttons
                     type="button"
                     text="Play All"
-                    iconUrl="src/assets/static/svgs/icon.svg"
+                    iconUrl="/assets/static/svgs/icon.svg"
                   />
                   <ArrowLeft isSelected={false} />
                   <ArrowRight isSelected />
