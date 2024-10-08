@@ -7,6 +7,7 @@ type Props = {
   onPlayPause: () => void;
   handleNextAudio(): void;
   handlePreviousAudio(): void;
+  elapsedTime: number;
 };
 
 export default function MediaControls(props: Props) {
@@ -44,7 +45,8 @@ export default function MediaControls(props: Props) {
       </button>
       {props.currentSong?.duration && (
         <span className={styles.media_time}>
-          0:00 / {convertAudioTime(props.currentSong.duration)}
+          {convertAudioTime(props.elapsedTime)} /{" "}
+          {convertAudioTime(props.currentSong.duration)}
         </span>
       )}
     </div>

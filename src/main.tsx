@@ -42,6 +42,7 @@ function Main() {
   const [currentSong, setCurrentSong] = useState<audioTypes | null>(null);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [progress, setProgress] = useState<number>(0);
+  const [elapsedTime, setElapsedTime] = useState<number>(0);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
@@ -58,6 +59,7 @@ function Main() {
     const updateProgress = () => {
       if (audio.duration > 0) {
         setProgress((audio.currentTime / audio.duration) * 100);
+        setElapsedTime(audio.currentTime);
       }
     };
 
@@ -138,6 +140,7 @@ function Main() {
         onProgressChange={handleProgressChange}
         handleNextAudio={handleNextAudio}
         handlePreviousAudio={handlePreviousAudio}
+        elapsedTime={elapsedTime}
       />
       {!isPlaylistAddOpen ? (
         <Home
