@@ -113,6 +113,7 @@ function Main() {
   function handleSongSelect(song: audioTypes) {
     setCurrentSong(song);
     setProgress(0);
+    setElapsedTime(0);
     if (audioRef.current) {
       audioRef.current.src = song.urls.high_mp3;
       audioRef.current.play();
