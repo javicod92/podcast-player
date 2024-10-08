@@ -11,9 +11,17 @@ type Props = {
 
 export default function MediaControls(props: Props) {
   function convertAudioTime(time: number) {
-    const minutes = Math.floor(time / 60);
-    const remainingSeconds = Math.floor(time % 60);
-    return `${minutes}:${remainingSeconds}`;
+    const hours = Math.floor(time / 3600);
+    const minutes = Math.floor((time % 3600) / 60);
+    const seconds = Math.floor(time % 60);
+
+    if (hours > 0) {
+      return `${hours}:${String(minutes).padStart(2, "0")}:${String(
+        seconds
+      ).padStart(2, "0")}`;
+    } else {
+      return `${minutes}:${String(seconds).padStart(2, "0")}`;
+    }
   }
 
   return (
