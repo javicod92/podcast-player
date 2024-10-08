@@ -13,6 +13,7 @@ type Props = {
   likes?: number;
   audioSrc?: string;
   onSongSelect?: () => void;
+  isPlaying?: boolean;
 };
 
 const className = {
@@ -25,15 +26,22 @@ const className = {
 export default function SongCard(props: Props) {
   return (
     <div className={styles[className[props.size]]} onClick={props.onSongSelect}>
-      <img
-        src={props.imageUrl ? props.imageUrl : props.imageAlternative}
-        alt="Artist Album"
-        className={
-          props.size !== "smallest"
-            ? styles.artist_image
-            : styles.artist_image_smallest
-        }
-      />
+      <div className={styles.images_container}>
+        <img
+          src={props.imageUrl ? props.imageUrl : props.imageAlternative}
+          alt="Artist Album"
+          className={
+            props.size !== "smallest"
+              ? styles.artist_image
+              : styles.artist_image_smallest
+          }
+        />
+        {props.isPlaying && (
+          <div className={styles.state_container}>
+            <img src="/assets/static/svgs/speaker.svg" alt="Speaker" />
+          </div>
+        )}
+      </div>
       <div className={styles.artist_description}>
         <div className={styles.description_text}>
           <p

@@ -152,6 +152,9 @@ export default function PrincipalContent(props: Props) {
                         secondaryText={element.description}
                         audioSrc={element.urls.high_mp3}
                         onSongSelect={() => props.onSongSelect(element)}
+                        isPlaying={
+                          props.currentSongId === element.id && props.isPlaying
+                        }
                       />
                     );
                   })
