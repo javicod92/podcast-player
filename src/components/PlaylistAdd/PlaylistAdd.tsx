@@ -48,27 +48,33 @@ export default function PlaylistAdd(props: Props) {
         <h2>Creá tu playlist</h2>
         <UserInput
           name="title"
-          text="Título"
-          placeHolder="Título de la lista"
-          inputId="list-title"
-          handlChange={setFormStates}
+          label="Título"
+          placeholder="Título de la lista"
+          id="list-title"
+          handleChange={setFormStates}
           value={formStates.title}
+          aria-label="Título de la lista"
+          required
         />
         <UserInput
           name="description"
-          text="Descripción"
-          placeHolder="Descripción de la lista"
-          inputId="list-description"
-          handlChange={setFormStates}
+          label="Descripción"
+          placeholder="Descripción de la lista"
+          id="list-description"
+          handleChange={setFormStates}
           value={formStates.description}
+          aria-label="Descripción de la lista"
+          required
         />
         <UserInput
           name="imageUrl"
-          text="Imágen (URL)"
-          placeHolder="Imágen de la lista"
-          inputId="list-image"
-          handlChange={setFormStates}
+          label="Imágen (URL)"
+          placeholder="Imágen de la lista"
+          id="list-image"
+          handleChange={setFormStates}
           value={formStates.imageUrl}
+          aria-label="Imágen de la lista"
+          required
         />
         <Buttons
           disabled={
