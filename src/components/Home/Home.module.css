@@ -78,7 +78,8 @@
 
 .listenAgain_content_albums:hover,
 .artistContainer:hover,
-.recommendedAlbums:hover {
+.recommendedAlbums:hover,
+.quickPicks_songCards:hover {
   scrollbar-color: #606060 transparent;
 }
 
@@ -86,9 +87,10 @@
   width: 100%;
   height: max-content;
   display: grid;
-  grid-template-columns: repeat(
-    4,
-    minmax(240px, 1fr)
-  ); /* repeat(content-fit, minmax()) */
-  gap: 24px;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: repeat(5, min-content);
+  gap: 40px 24px;
+  overflow-x: scroll;
+  scrollbar-color: transparent transparent;
 }
