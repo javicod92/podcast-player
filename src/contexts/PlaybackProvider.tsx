@@ -80,11 +80,17 @@ export default function PlaybackProvider({
       }
     };
 
+    const handleAudioEnd = () => {
+      handleNextAudio();
+    };
+
     audio.addEventListener("timeupdate", updateProgress);
+    audio.addEventListener("ended", handleAudioEnd);
     return () => {
       audio.removeEventListener("timeupdate", updateProgress);
+      audio.removeEventListener("ended", handleAudioEnd);
     };
-  }, []);
+  }, [currentSong]);
 
   const handlePlayPause = () => {
     if (currentSong) {
