@@ -12,19 +12,13 @@ import SongAlbum from "../SongAlbum/SongAlbum";
 import ArtistProfile from "../ArtistProfile/ArtistProfile";
 import Buttons from "../Buttons/Buttons";
 import SongCard from "../SongCard/SongCard";
-import { audioTypes } from "../Logic/audioTypes";
+import { SongContext } from "../../contexts/PlaybackProvider";
+import { useContext } from "react";
 
-type Props = {
-  dataSongs: audioTypes[];
-  isLoading: boolean;
-  error: boolean;
-  currentSongId: number | undefined;
-  isPlaying: boolean;
-  onSongSelect: (song: audioTypes) => void;
-};
+export default function PrincipalContent() {
+  const songContext = useContext(SongContext);
 
-export default function PrincipalContent(props: Props) {
-  if (props.isLoading) {
+  if (songContext?.isLoading) {
     return (
       <h1 style={{ display: "grid", placeContent: "center", width: "100%" }}>
         La página se está cargando...
@@ -32,7 +26,7 @@ export default function PrincipalContent(props: Props) {
     );
   }
 
-  if (props.error) {
+  if (songContext?.error) {
     alert("Hubo un error y la página no se cargó");
     return (
       <h1 style={{ display: "grid", placeContent: "center", width: "100%" }}>
@@ -69,7 +63,7 @@ export default function PrincipalContent(props: Props) {
                 </div>
               </div>
               <div className={styles.listenAgain_content_albums}>
-                {props.dataSongs
+                {songContext?.dataSongs
                   .map((element) => {
                     return (
                       <SongAlbum
@@ -83,9 +77,12 @@ export default function PrincipalContent(props: Props) {
                         primaryText={element.title}
                         secondaryText={element.description}
                         audioSrc={element.urls.high_mp3}
-                        onSongSelect={() => props.onSongSelect(element)}
+                        onSongSelect={() =>
+                          songContext?.handleSongSelect(element)
+                        }
                         isPlaying={
-                          props.currentSongId === element.id && props.isPlaying
+                          songContext.currentSong?.id === element.id &&
+                          songContext.isPlaying
                         }
                       />
                     );
@@ -130,14 +127,14 @@ export default function PrincipalContent(props: Props) {
                   <Buttons
                     type="button"
                     text="Play All"
-                    iconUrl="src/assets/static/svgs/icon.svg"
+                    iconUrl="/assets/static/svgs/icon.svg"
                   />
                   <ArrowLeft isSelected={false} />
                   <ArrowRight isSelected />
                 </div>
               </div>
               <div className={styles.quickPicks_songCards}>
-                {props.dataSongs
+                {songContext?.dataSongs
                   .map((element) => {
                     return (
                       <SongCard
@@ -151,7 +148,13 @@ export default function PrincipalContent(props: Props) {
                         primaryText={element.title}
                         secondaryText={element.description}
                         audioSrc={element.urls.high_mp3}
-                        onSongSelect={() => props.onSongSelect(element)}
+                        onSongSelect={() =>
+                          songContext.handleSongSelect(element)
+                        }
+                        isPlaying={
+                          songContext.currentSong?.id === element.id &&
+                          songContext.isPlaying
+                        }
                       />
                     );
                   })

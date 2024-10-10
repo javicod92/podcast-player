@@ -13,6 +13,7 @@ type Props = {
   likes?: number;
   audioSrc?: string;
   onSongSelect?: () => void;
+  isPlaying?: boolean;
 };
 
 const className = {
@@ -22,52 +23,98 @@ const className = {
   large: "songCard_container_large",
 };
 
+type ImageContainerProps = {
+  imageUrl?: string;
+  imageAlternative?: string;
+  isPlaying?: boolean;
+  size: Props["size"];
+};
+
+const ImageContainer = ({
+  imageUrl,
+  imageAlternative,
+  isPlaying,
+  size,
+}: ImageContainerProps) => (
+  <div className={styles.images_container}>
+    <img
+      src={imageUrl || imageAlternative}
+      alt="Álbum del Artista"
+      className={
+        size !== "smallest" ? styles.artist_image : styles.artist_image_smallest
+      }
+    />
+    {isPlaying && (
+      <div className={styles.state_container}>
+        <img src="/assets/static/svgs/speaker.svg" alt="Altavoz" />
+      </div>
+    )}
+  </div>
+);
+
+type DescriptionProps = {
+  primaryText: string;
+  secondaryText?: string;
+  views?: number;
+  likes?: number;
+  size: Props["size"];
+};
+
+const truncateText = (text: string, maxLength: number) => {
+  return text.length > maxLength ? text.slice(0, maxLength) + "..." : text;
+};
+
+const Description = ({
+  primaryText,
+  secondaryText,
+  views,
+  likes,
+  size,
+}: DescriptionProps) => (
+  <div className={styles.artist_description}>
+    <div className={styles.description_text}>
+      <p
+        className={
+          size !== "smallest" ? styles.songTitle : styles.songTitle_smallest
+        }
+      >
+        {truncateText(primaryText, 20)}
+      </p>
+      <p
+        className={
+          size !== "smallest"
+            ? styles.artistDescription
+            : styles.artistDescription_smallest
+        }
+      >
+        {secondaryText ? truncateText(secondaryText, 10) : ""}{" "}
+        {size !== "large" && " • Escuchar de Nuevo"}{" "}
+        {size === "large" &&
+          ` • ${convertNumber(views || 0)} vistas • ${convertNumber(
+            likes || 0
+          )} me gusta`}
+      </p>
+    </div>
+    {size !== "small" && size !== "smallest" && <UserReaction />}
+  </div>
+);
+
 export default function SongCard(props: Props) {
   return (
     <div className={styles[className[props.size]]} onClick={props.onSongSelect}>
-      <img
-        src={props.imageUrl ? props.imageUrl : props.imageAlternative}
-        alt="Artist Album"
-        className={
-          props.size !== "smallest"
-            ? styles.artist_image
-            : styles.artist_image_smallest
-        }
+      <ImageContainer
+        imageUrl={props.imageUrl}
+        imageAlternative={props.imageAlternative}
+        isPlaying={props.isPlaying}
+        size={props.size}
       />
-      <div className={styles.artist_description}>
-        <div className={styles.description_text}>
-          <p
-            className={
-              props.size !== "smallest"
-                ? styles.songTitle
-                : styles.songTitle_smallest
-            }
-          >
-            {props.primaryText?.length > 20
-              ? props.primaryText?.slice(0, 20) + "..."
-              : props.primaryText}
-          </p>
-          <p
-            className={
-              props.size !== "smallest"
-                ? styles.artistDescription
-                : styles.artistDescription_smallest
-            }
-          >
-            {props.secondaryText && props.secondaryText.length > 10
-              ? props.secondaryText.slice(0, 10) + "..."
-              : props.secondaryText}{" "}
-            {props.size !== "large" && " • Listen Again"}{" "}
-            {props.size === "large" &&
-              ` • ${convertNumber(props.views || 0)} views • ${convertNumber(
-                props.likes || 0
-              )} likes`}
-          </p>
-        </div>
-        {props.size !== "small" && props.size !== "smallest" && (
-          <UserReaction />
-        )}
-      </div>
+      <Description
+        primaryText={props.primaryText}
+        secondaryText={props.secondaryText}
+        views={props.views}
+        likes={props.likes}
+        size={props.size}
+      />
     </div>
   );
 }

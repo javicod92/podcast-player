@@ -15,62 +15,56 @@ type Props = {
   isPlaying: boolean;
 };
 
+type ImageContainerProps = {
+  imageSource?: string;
+  imageAlternative: string;
+  isAlbum: boolean;
+  isPlaying: boolean;
+  onSongSelect?: () => void;
+};
+
+function ImageContainer(props: ImageContainerProps) {
+  return (
+    <div className={styles.image_container} onClick={props.onSongSelect}>
+      <img
+        className={
+          props.isAlbum ? styles.albumImage : styles.albumImage_landScape
+        }
+        src={props.imageSource || props.imageAlternative}
+        alt="Album Photo"
+      />
+      <img
+        className={styles.albumPlay}
+        src={
+          props.isPlaying
+            ? "/assets/static/svgs/pause.svg"
+            : "/assets/static/svgs/play_circle.svg"
+        }
+        alt="Play Circle"
+      />
+    </div>
+  );
+}
+
 export default function SongAlbum(props: Props) {
-  if (props.isAlbum) {
-    return (
-      <div className={styles.songAlbum_container}>
-        <div className={styles.image_container}>
-          <img
-            className={styles.albumImage}
-            src={props.imageSource ? props.imageSource : props.imageAlternative}
-            alt="Album Photo"
-          />
-          <img
-            className={styles.albumPlay}
-            src="src/assets/static/svgs/play_circle.svg"
-            alt="Paly Circle"
-          />
-        </div>
-        <div className={styles.album_text}>
-          <PlayListAndSongTitle
-            isAlbum={props.isAlbum}
-            primaryText={props.primaryText}
-            secondaryText={props.secondaryText}
-            songs={props.songs}
-            views={props.views}
-          />
-        </div>
+  return (
+    <div className={styles.songAlbum_container}>
+      <ImageContainer
+        imageSource={props.imageSource}
+        imageAlternative={props.imageAlternative}
+        isAlbum={props.isAlbum}
+        isPlaying={props.isPlaying}
+        onSongSelect={props.isAlbum ? undefined : props.onSongSelect}
+      />
+      <div className={styles.album_text}>
+        <PlayListAndSongTitle
+          isAlbum={props.isAlbum}
+          primaryText={props.primaryText}
+          secondaryText={props.secondaryText}
+          songs={props.songs}
+          views={props.views}
+        />
       </div>
-    );
-  } else {
-    return (
-      <div className={styles.songAlbum_container} onClick={props.onSongSelect}>
-        <div className={styles.image_container}>
-          <img
-            className={styles.albumImage_landScape}
-            src={props.imageSource ? props.imageSource : props.imageAlternative}
-            alt="Album Photo"
-          />
-          <img
-            className={styles.albumPlay}
-            src={
-              props.isPlaying
-                ? "src/assets/static/svgs/pause.svg"
-                : "src/assets/static/svgs/play_circle.svg"
-            }
-            alt="Paly Circle"
-          />
-        </div>
-        <div className={styles.album_text}>
-          <PlayListAndSongTitle
-            isAlbum={props.isAlbum}
-            primaryText={props.primaryText}
-            secondaryText={props.secondaryText}
-            songs={props.songs}
-            views={props.views}
-          />
-        </div>
-      </div>
-    );
-  }
+    </div>
+  );
 }

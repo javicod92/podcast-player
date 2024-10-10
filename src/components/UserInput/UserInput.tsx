@@ -1,14 +1,5 @@
-import { ChangeEvent } from "react";
+import { ChangeEvent, ComponentProps } from "react";
 import styles from "./UserInput.module.css";
-
-type Props = {
-  name: string;
-  placeHolder: string;
-  inputId: string;
-  text: string;
-  handlChange: React.Dispatch<React.SetStateAction<ItemList>>;
-  value: string;
-};
 
 type ItemList = {
   title: string;
@@ -16,25 +7,29 @@ type ItemList = {
   imageUrl: string;
 };
 
-export default function UserInput(props: Props) {
-  const handlChange = (event: ChangeEvent<HTMLInputElement>) => {
+type Props = ComponentProps<"input"> & {
+  label: string;
+  handleChange: React.Dispatch<React.SetStateAction<ItemList>>;
+};
+
+export default function UserInput({
+  label,
+  handleChange,
+  ...delegated
+}: Props) {
+  const onChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
-    props.handlChange((prevState) => ({ ...prevState, [name]: value }));
+    handleChange((prevState) => ({ ...prevState, [name]: value }));
   };
 
   return (
     <div className={styles.input_container}>
-      <label htmlFor={props.inputId}>{props.text}</label>
+      <label htmlFor={delegated.id}>{label}</label>
       <input
-        name={props.name}
-        id={props.inputId}
+        {...delegated}
         className={styles.input_element}
         type="text"
-        placeholder={props.placeHolder}
-        aria-label={props.placeHolder}
-        onChange={handlChange}
-        value={props.value}
-        required
+        onChange={onChange}
       />
     </div>
   );

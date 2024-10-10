@@ -5,18 +5,21 @@ export default function UserReaction() {
     <div className={styles.reaction_container}>
       <img
         className={styles.reaction}
-        src="src\assets\static\svgs\hand_down.svg"
+        src="\assets\static\svgs\hand_down.svg"
         alt="hand_down"
+        title="Dislike"
       />
       <img
         className={styles.reaction}
-        src="src\assets\static\svgs\hand_up.svg"
+        src="\assets\static\svgs\hand_up.svg"
         alt="hand_up"
+        title="Like"
       />
       <img
         className={styles.reaction}
-        src="src\assets\static\svgs\more_vert.svg"
+        src="\assets\static\svgs\more_vert.svg"
         alt="more"
+        title="Options"
       />
     </div>
   );

@@ -1,12 +1,10 @@
 import { useEffect, useRef } from "react";
+import { SongContext } from "../../contexts/PlaybackProvider";
+import { useContext } from "react";
 import styles from "./ProgressBar.module.css";
 
-type Props = {
-  progress: number;
-  onProgressChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-};
-
-export default function ProgressBar(props: Props) {
+export default function ProgressBar() {
+  const songContext = useContext(SongContext);
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
@@ -22,19 +20,19 @@ export default function ProgressBar(props: Props) {
     }
 
     updateProgressBar();
-  }, [props.progress]);
+  }, [songContext?.progress]);
 
   return (
     <div className={styles.progresBar_container}>
       <input
         ref={inputRef}
-        onChange={props.onProgressChange}
+        onChange={songContext?.handleProgressChange}
         className={styles.progressRange}
         type="range"
         id="progressRange"
         min="0"
         max="100"
-        value={props.progress}
+        value={songContext?.progress}
         step=".1"
       />
     </div>

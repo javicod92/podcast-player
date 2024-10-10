@@ -80,3 +80,20 @@
   font-size: 14px;
   font-weight: 400;
 }
+
+.images_container {
+  position: relative;
+  width: min-content;
+  height: min-content;
+}
+
+.state_container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 48px;
+  height: 48px;
+  background: rgba(20, 20, 20, 0.8);
+  display: grid;
+  place-content: center;
+}
