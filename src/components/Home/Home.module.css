@@ -28,9 +28,12 @@
 }
 
 .filter {
-  margin: 20px 0;
+  width: 100%;
+  margin: 28px 0;
   display: flex;
   gap: 10px;
+  overflow-x: scroll;
+  scrollbar-color: transparent transparent;
 }
 
 .listenAgain_content,
@@ -79,7 +82,8 @@
 .listenAgain_content_albums:hover,
 .artistContainer:hover,
 .recommendedAlbums:hover,
-.quickPicks_songCards:hover {
+.quickPicks_songCards:hover,
+.filter:hover {
   scrollbar-color: #606060 transparent;
 }
 
