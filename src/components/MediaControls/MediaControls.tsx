@@ -1,16 +1,10 @@
 import styles from "./MediaControls.module.css";
-import { audioTypes } from "../Logic/audioTypes";
+import { SongContext } from "../../contexts/PlaybackProvider";
+import { useContext } from "react";
 
-type Props = {
-  currentSong: audioTypes | null;
-  isPlaying: boolean;
-  onPlayPause: () => void;
-  handleNextAudio(): void;
-  handlePreviousAudio(): void;
-  elapsedTime: number;
-};
+export default function MediaControls() {
+  const songContext = useContext(SongContext);
 
-export default function MediaControls(props: Props) {
   function convertAudioTime(time: number) {
     const hours = Math.floor(time / 3600);
     const minutes = Math.floor((time % 3600) / 60);
@@ -27,26 +21,26 @@ export default function MediaControls(props: Props) {
 
   return (
     <div className={styles.media_container}>
-      <button id="previous_button" onClick={props.handlePreviousAudio}>
+      <button id="previous_button" onClick={songContext?.handlePreviousAudio}>
         <img src="/assets/static/svgs/skip_previous.svg" alt="previous" />
       </button>
-      <button id="button_play" onClick={props.onPlayPause}>
+      <button id="button_play" onClick={songContext?.handlePlayPause}>
         <img
           src={
-            props.isPlaying
+            songContext?.isPlaying
               ? "/assets/static/svgs/pause.svg"
               : "/assets/static/svgs/play_arrow.svg"
           }
           alt="play/pause"
         />
       </button>
-      <button id="next_button" onClick={props.handleNextAudio}>
+      <button id="next_button" onClick={songContext?.handleNextAudio}>
         <img src="/assets/static/svgs/skip_next.svg" alt="next" />
       </button>
-      {props.currentSong?.duration && (
+      {songContext?.currentSong?.duration && (
         <span className={styles.media_time}>
-          {convertAudioTime(props.elapsedTime)} /{" "}
-          {convertAudioTime(props.currentSong.duration)}
+          {convertAudioTime(songContext?.elapsedTime)} /{" "}
+          {convertAudioTime(songContext?.currentSong.duration)}
         </span>
       )}
     </div>
