@@ -93,7 +93,7 @@
   display: grid;
   grid-auto-flow: column;
   grid-template-rows: repeat(4, 1fr);
-  grid-template-columns: repeat(5, min-content);
+  grid-template-columns: repeat(5, 1fr);
   gap: 40px 24px;
   overflow-x: scroll;
   scrollbar-color: transparent transparent;
