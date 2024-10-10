@@ -130,15 +130,20 @@ export default function PlaybackProvider({
   };
 
   const handleSongSelect = (song: audioTypes) => {
-    setCurrentSong(song);
-    setProgress(0);
-    setElapsedTime(0);
-    setIsPlaybackBarEnabled(true);
-    if (audioRef.current) {
-      audioRef.current.src = song.urls.high_mp3;
-      audioRef.current.play();
+    if (currentSong?.id === song.id) {
+      setIsPlaybackBarEnabled(true);
+      handlePlayPause();
+    } else {
+      setCurrentSong(song);
+      setProgress(0);
+      setElapsedTime(0);
+      setIsPlaybackBarEnabled(true);
+      if (audioRef.current) {
+        audioRef.current.src = song.urls.high_mp3;
+        audioRef.current.play();
+      }
+      setIsPlaying(true);
     }
-    setIsPlaying(true);
   };
 
   const handleProgressChange = (event: React.ChangeEvent<HTMLInputElement>) => {
