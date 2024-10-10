@@ -21,10 +21,18 @@ export default function MediaControls() {
 
   return (
     <div className={styles.media_container}>
-      <button id="previous_button" onClick={songContext?.handlePreviousAudio}>
+      <button
+        id="previous_button"
+        onClick={songContext?.handlePreviousAudio}
+        title="Previous"
+      >
         <img src="/assets/static/svgs/skip_previous.svg" alt="previous" />
       </button>
-      <button id="button_play" onClick={songContext?.handlePlayPause}>
+      <button
+        id="button_play"
+        onClick={songContext?.handlePlayPause}
+        title="Play/Pause"
+      >
         <img
           src={
             songContext?.isPlaying
@@ -34,7 +42,11 @@ export default function MediaControls() {
           alt="play/pause"
         />
       </button>
-      <button id="next_button" onClick={songContext?.handleNextAudio}>
+      <button
+        id="next_button"
+        onClick={songContext?.handleNextAudio}
+        title="Next"
+      >
         <img src="/assets/static/svgs/skip_next.svg" alt="next" />
       </button>
       {songContext?.currentSong?.duration && (

@@ -11,9 +11,11 @@ type SongContextType = {
   isPlaying: boolean;
   progress: number;
   elapsedTime: number;
+  isPlaybackBarEnabled: boolean;
   handlePlayPause: () => void;
   handleNextAudio: () => void;
   handlePreviousAudio: () => void;
+  handleDisablePlaybackBar: () => void;
   handleSongSelect: (song: audioTypes) => void;
   handleProgressChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
@@ -43,6 +45,15 @@ export default function PlaybackProvider({
   const dataSongs = [...data1, ...data2];
   const isLoading = isLoading1 || isLoading2;
   const error = error1 || error2;
+
+  //This state is used to enable or disabled the PlaybackBar component
+  const [isPlaybackBarEnabled, setIsPlaybackBarEnabled] =
+    useState<boolean>(false);
+  const handleDisablePlaybackBar = () => {
+    audioRef.current?.pause();
+    setIsPlaying(false);
+    setIsPlaybackBarEnabled(false);
+  };
 
   //This code is used to manage the functions of the song
   const [currentSong, setCurrentSong] = useState<audioTypes | null>(null);
@@ -116,6 +127,7 @@ export default function PlaybackProvider({
     setCurrentSong(song);
     setProgress(0);
     setElapsedTime(0);
+    setIsPlaybackBarEnabled(true);
     if (audioRef.current) {
       audioRef.current.src = song.urls.high_mp3;
       audioRef.current.play();
@@ -146,8 +158,10 @@ export default function PlaybackProvider({
         handlePlayPause,
         handleNextAudio,
         handlePreviousAudio,
+        isPlaybackBarEnabled,
         handleSongSelect,
         handleProgressChange,
+        handleDisablePlaybackBar,
       }}
     >
       {children}
