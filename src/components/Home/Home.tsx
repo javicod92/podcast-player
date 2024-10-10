@@ -20,7 +20,14 @@ export default function PrincipalContent() {
 
   if (songContext?.isLoading) {
     return (
-      <h1 style={{ display: "grid", placeContent: "center", width: "100%" }}>
+      <h1
+        style={{
+          display: "grid",
+          placeContent: "center",
+          width: "100%",
+          paddingTop: "96px",
+        }}
+      >
         La página se está cargando...
       </h1>
     );
@@ -29,7 +36,14 @@ export default function PrincipalContent() {
   if (songContext?.error) {
     alert("Hubo un error y la página no se cargó");
     return (
-      <h1 style={{ display: "grid", placeContent: "center", width: "100%" }}>
+      <h1
+        style={{
+          display: "grid",
+          placeContent: "center",
+          width: "100%",
+          paddingTop: "96px",
+        }}
+      >
         Hubo un error y la página no se cargó
       </h1>
     );
@@ -37,7 +51,11 @@ export default function PrincipalContent() {
 
   return (
     <div className={styles.page_container}>
-      <div className={styles.page_border_top_bottom}>
+      <div
+        className={`${styles.page_border_top} ${
+          songContext?.isPlaybackBarEnabled && styles.page_border_bottom
+        }`}
+      >
         <div className={styles.page_border_left}>
           <div className={styles.page_main}>
             <section id="filterChip" className={styles.filter}>
