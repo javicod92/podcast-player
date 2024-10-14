@@ -25,6 +25,7 @@ export const SongContext = createContext<SongContextType | undefined>(
   undefined
 );
 
+//This is mi Global Provider to manage my Playback songs
 export default function PlaybackProvider({
   children,
 }: {
@@ -51,6 +52,9 @@ export default function PlaybackProvider({
     useState<boolean>(false);
   const handleDisablePlaybackBar = () => {
     audioRef.current?.pause();
+    setProgress(0);
+    setElapsedTime(0);
+    setCurrentSong(null);
     setIsPlaying(false);
     setIsPlaybackBarEnabled(false);
   };

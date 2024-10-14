@@ -2,6 +2,7 @@ import styles from "./SideBar.module.css";
 import MenuItem from "../MenuItem/MenuItem.tsx";
 import Buttons from "../Buttons/Buttons.tsx";
 import SongCard from "../SongCard/SongCard.tsx";
+import { useId } from "react";
 
 type Props = {
   size: "compact" | "expanded";
@@ -17,6 +18,8 @@ type ItemList = {
 
 //This functun accepts "compact" and "spanded" parameters
 export default function SideBar(props: Props) {
+  const id = useId();
+
   //This function is used to render the “add playlist” section when the menu button is clicked
   const togglePlayListAdd = () => {
     props.setIsPlaylistAddOpen((prevState) => !prevState);
@@ -88,9 +91,10 @@ export default function SideBar(props: Props) {
         </div>
         <div className={styles.playlist_list_container}>
           <div className={styles.playlist_content}>
-            {props.items.map((item) => {
+            {props.items.map((item, index) => {
               return (
                 <SongCard
+                  key={`${id}-${index}`}
                   size={"smallest"}
                   imageUrl={item.imageUrl}
                   primaryText={item.title}
