@@ -47,31 +47,22 @@ export default function PlaybackProvider({
   const isLoading = isLoading1 || isLoading2;
   const error = error1 || error2;
 
-  //This state is used to enable or disabled the PlaybackBar component
-  const [isPlaybackBarEnabled, setIsPlaybackBarEnabled] =
-    useState<boolean>(false);
-  const handleDisablePlaybackBar = () => {
-    audioRef.current?.pause();
-    setProgress(0);
-    setElapsedTime(0);
-    setCurrentSong(null);
-    setIsPlaying(false);
-    setIsPlaybackBarEnabled(false);
-  };
-
   //This code is used to manage the functions of the song
   const [currentSong, setCurrentSong] = useState<audioTypes | null>(null);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [progress, setProgress] = useState<number>(0);
   const [elapsedTime, setElapsedTime] = useState<number>(0);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [isPlaybackBarEnabled, setIsPlaybackBarEnabled] =
+    useState<boolean>(false);
 
-  useEffect(() => {
-    if (!currentSong && dataSongs.length > 0 && audioRef.current) {
-      setCurrentSong(dataSongs[0]);
-      audioRef.current.src = dataSongs[0].urls.high_mp3;
-    }
-  }, [dataSongs]);
+  //This Effect is used to select the first song to be played
+  // useEffect(() => {
+  //   if (!currentSong && dataSongs.length > 0 && audioRef.current) {
+  //     setCurrentSong(dataSongs[0]);
+  //     audioRef.current.src = dataSongs[0].urls.high_mp3;
+  //   }
+  // }, [dataSongs]);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -95,6 +86,21 @@ export default function PlaybackProvider({
       audio.removeEventListener("ended", handleAudioEnd);
     };
   }, [currentSong]);
+
+  //This function is used to stop the current song
+  const handleStop = () => {
+    audioRef.current?.pause();
+    setProgress(0);
+    setElapsedTime(0);
+    setCurrentSong(null);
+    setIsPlaying(false);
+  };
+
+  //This state is used to enable or disabled the PlaybackBar component
+  const handleDisablePlaybackBar = () => {
+    handleStop();
+    setIsPlaybackBarEnabled(false);
+  };
 
   const handlePlayPause = () => {
     if (currentSong) {
