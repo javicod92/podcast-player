@@ -89,11 +89,11 @@ export default function PlaybackProvider({
 
   //This function is used to stop the current song
   const handleStop = () => {
-    audioRef.current?.pause();
-    setProgress(0);
-    setElapsedTime(0);
-    setCurrentSong(null);
-    setIsPlaying(false);
+    if (audioRef.current) {
+      audioRef.current?.pause();
+      audioRef.current.currentTime = 0;
+      setIsPlaying(false);
+    }
   };
 
   //This state is used to enable or disabled the PlaybackBar component
@@ -127,14 +127,18 @@ export default function PlaybackProvider({
   };
 
   const handlePreviousAudio = () => {
-    if (currentSong) {
-      const audioIndex = dataSongs.findIndex(
-        (audio) => audio.id === currentSong.id
-      );
-      if (audioIndex > 0) {
-        handleSongSelect(dataSongs[audioIndex - 1]);
+    if (currentSong && audioRef.current) {
+      if (elapsedTime <= 30) {
+        const audioIndex = dataSongs.findIndex(
+          (audio) => audio.id === currentSong.id
+        );
+        if (audioIndex > 0) {
+          handleSongSelect(dataSongs[audioIndex - 1]);
+        } else {
+          handleSongSelect(dataSongs[dataSongs.length - 1]);
+        }
       } else {
-        handleSongSelect(dataSongs[dataSongs.length - 1]);
+        audioRef.current.currentTime = 0;
       }
     }
   };
