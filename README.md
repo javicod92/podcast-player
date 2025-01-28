@@ -2,9 +2,15 @@
 This project is a Youtube Music clone and was done as a final certification work for the React course at Informatorio Chaco. This project was built with technologies such as <b>React + Vite</b> and client-side rendering to offer the best user experience
 
 ## 🛠️ Used technologies:
-- **Vite:** Compiler and development tool to deliver a faster and more agile experience
 - **React:** It is used to build reusable components and provide the best user experience
+- **Vite:** Compiler and development tool to deliver a faster and more agile experience
 - **TypeScript:** It is used for adding static typing and error prevention
 - **CSS Modules:** It is used to avoid errors and style superposition
 
 ## 🚀 Main Functions:
+- The page was built using modularity concepts and clean code for easy scalability, separating each part of the code according to its function
+- To obtain all the songs of the page, I have used an external API like Audioboom
+- The application contains a Header component, which has the application logo, a song search bar and user data such as the user's photo
+- The application contains a sidebar component that allows users to add new playlists in real time. Users can set the title, description and photo of their playlist
+- The main section contains all the songs obtained from the Audioboom API and the user can select any song to play it
+- 
