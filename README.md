@@ -16,3 +16,7 @@ This project is a Youtube Music clone and was done as a final certification work
 - The songs in the main section are structured in several sections: music category, artists, recommended albums and listen again
 - In the footer section, I have implemented a playback bar that allows the user to know the duration of the song, know the elapsed time, fast forward or rewind the time of the song, play and pause and switch between songs
 - The playback bar shows the user the title, description and picture of the song, also the user can close the playback bar
+
+## 📚 Applied Concepts
+- useState (React Hook), used to manage simple and complex states to allow handling proper interactivity with the page.
+- useEffect (React Hook), used to manage side effects in my React Components 
