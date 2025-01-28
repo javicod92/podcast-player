@@ -6,3 +6,5 @@ This project is a Youtube Music clone and was done as a final certification work
 - **React:** It is used to build reusable components and provide the best user experience
 - **TypeScript:** It is used for adding static typing and error prevention
 - **CSS Modules:** It is used to avoid errors and style superposition
+
+## 🚀 Main Functions:
