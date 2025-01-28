@@ -13,4 +13,5 @@ This project is a Youtube Music clone and was done as a final certification work
 - The application contains a Header component, which has the application logo, a song search bar and user data such as the user's photo
 - The application contains a sidebar component that allows users to add new playlists in real time. Users can set the title, description and photo of their playlist
 - The main section contains all the songs obtained from the Audioboom API and the user can select any song to play it
-- 
+- The songs in the main section are structured in several sections: music category, artists, recommended albums and listen again
+- In the footer section, I have implemented a playback bar that allows the user to know the duration of the song, know the elapsed time, fast forward or rewind the time of the song, play and pause and switch between songs
