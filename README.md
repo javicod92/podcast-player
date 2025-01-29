@@ -29,3 +29,5 @@ This project is a Youtube Music clone and was done as a final certification work
 - Separation of Concerns: The code was divided into simple modules and clear responsibilities
 - Prop Delegation: Technique that allows to easily add or remove new functions to a component
 - Context and Providers: For this app, I have used a context and a provider to separate the song playback logic and apply it globally to my application
+
+## Project Screenshots
