@@ -31,10 +31,21 @@ This project is a Youtube Music clone and was done as a final certification work
 - Context and Providers: For this app, I have used a context and a provider to separate the song playback logic and apply it globally to my application
 
 ## Project Screenshots
+### Loading content:
+1) While the page fetches the songs from the Audioboom API, I have implemented a load message from my useFetch hook
+
 ![370104683-eb4c74d6-9cfd-4ae5-a607-c3334fe9885e](https://github.com/user-attachments/assets/4cb9a686-e51e-4fcf-830d-e4dd456cb69f)
+
+2) If the data has not been loaded correctly from the external API, the application displays an error message to the user. Otherwise, the page will show the user all the songs obtained
+
 ![370105529-48f0ac39-f353-4380-bb35-9a15b0e8e641](https://github.com/user-attachments/assets/bd01c8e7-1016-4473-9ef1-5cf9408e6dc5)
-![Captura desde 2025-01-29 17-47-41](https://github.com/user-attachments/assets/1015f7c3-31cf-4f4b-900c-1253a7985d2c)
+
+### Sections of the Web Application
+
+1) This picture shows the Category and Listen Again sections
+
 ![Captura desde 2025-01-29 17-47-13](https://github.com/user-attachments/assets/ecba9522-56fa-479b-9727-560ba1831702)
+![Captura desde 2025-01-29 17-47-41](https://github.com/user-attachments/assets/1015f7c3-31cf-4f4b-900c-1253a7985d2c)
 ![Captura desde 2025-01-29 17-47-57](https://github.com/user-attachments/assets/5117e4cf-952e-45a3-9228-f147827a14cd)
 ![Captura desde 2025-01-29 17-48-09](https://github.com/user-attachments/assets/d2cf7860-b7e5-4ddc-a476-4f088b4e2ca2)
 ![Captura desde 2025-01-29 17-48-15](https://github.com/user-attachments/assets/2be2682d-4b2a-4e9e-a9e6-87a4df0f04df)
