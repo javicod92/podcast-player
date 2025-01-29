@@ -1,5 +1,5 @@
 # Youtube Music App (clone) 
-This project is a Youtube Music clone and was done as a final certification work for the React course at Informatorio Chaco. This project was built with technologies such as <b>React + Vite</b> and client-side rendering to offer the best user experience, also this project consumes an external API
+This project is a Youtube Music clone and was done as a final certification work for the React course at Informatorio Chaco. This project was built with technologies such as <b>React + Vite</b> and client-side rendering to offer the best user experience, also this project consumes an external <b>API</b>
 
 ## 🛠️ Used technologies:
 - **React:** It is used to build reusable components and provide the best user experience
