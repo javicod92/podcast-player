@@ -18,5 +18,14 @@ This project is a Youtube Music clone and was done as a final certification work
 - The playback bar shows the user the title, description and picture of the song, also the user can close the playback bar
 
 ## 📚 Applied Concepts
-- useState (React Hook), used to manage simple and complex states to allow handling proper interactivity with the page.
-- useEffect (React Hook), used to manage side effects in my React Components 
+### React Hooks
+- useState: React hook used to manage simple and complex states to allow handling proper interactivity with the page
+- useEffect: React hook used to manage side effects in my React Components
+- useRef: React hook used to manipulate domain elements and store data without their value being affected by each re-rendering
+- useMemo: React hook used to store in cache memory the result between renderings
+- Custom Hook (useFetch): used to obtain song data from the Audioboom API
+
+### Design Patterns
+- Separation of Concerns: The code was divided into simple modules and clear responsibilities
+- Prop Delegation: Technique that allows to easily add or remove new functions to a component
+- Context and Providers: For this app, I have used a context and a provider to separate the song playback logic and apply it globally to my application
