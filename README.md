@@ -139,4 +139,4 @@ This project is a Youtube Music clone and was done as a final certification work
 2) **Install dependencies:** npm install
 3) **Use the App**
 
-this project was deployed in: https://podcast-player-eight.vercel.app
+**This project was deployed in:** https://podcast-player-eight.vercel.app
