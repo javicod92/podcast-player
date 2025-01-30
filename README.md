@@ -123,5 +123,17 @@ This project is a Youtube Music clone and was done as a final certification work
 
 ![375550627-bf09d12b-da3d-4bdf-9bba-13f183128c3f](https://github.com/user-attachments/assets/4d08e035-4f91-4da3-ac84-afcc9eb3907d)
 
+## 🥁 What Makes This Project Interesting?
+- **Design similat to Youtube Music App**
+- **Project developed with modern technologies such as React, Vite and TypeScript**
+- **Focuses on modularity and scalability, with well-separated logic**
+- **Use of CSS Modules to avoid style conflicts**
+- **This project consumes an external Audioboom API**
+- **Use custom hooks, such as useFetch, to consume the Audioboom API**
+- **Implements Context API and a Provider to handle playback logic globally**
+- **Offers functionalities such as play/pause, navigation between songs, fast forward/rewind, etc**
+- **Allows to display the time and to show the audio information (title, description and image) in the playback bar**
+
+
 
 
