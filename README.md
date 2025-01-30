@@ -134,6 +134,8 @@ This project is a Youtube Music clone and was done as a final certification work
 - **Offers functionalities such as play/pause, navigation between songs, fast forward/rewind, etc**
 - **Allows to display the time and to show the audio information (title, description and image) in the playback bar**
 
-
-
+## How to Use This App?
+1) **Clone this repository:** https://github.com/javicod92/podcast-player.git
+2) **Install dependencies:** npm install
+3) **Use the App**
 
