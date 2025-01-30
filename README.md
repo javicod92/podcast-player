@@ -90,7 +90,9 @@ This project is a Youtube Music clone and was done as a final certification work
 
 ![Captura desde 2025-01-29 17-57-07](https://github.com/user-attachments/assets/b9c912c7-ddcc-494e-a790-57a981e7196c)
 
-3) Pause icon displayed on the song card component
+3) Play and pause icons displayed on the song card component
+
+![Captura desde 2025-01-29 17-56-30](https://github.com/user-attachments/assets/97596f39-b8c5-4d06-a6b3-bd7bfcab7576)
 
 ![Captura desde 2025-01-29 17-57-23](https://github.com/user-attachments/assets/f6255f0a-7f07-41a1-bdba-56ec0eb17bf9)
 
