@@ -45,22 +45,80 @@ This project is a Youtube Music clone and was done as a final certification work
 1) This picture shows the Category and Listen Again sections
 
 ![Captura desde 2025-01-29 17-47-13](https://github.com/user-attachments/assets/ecba9522-56fa-479b-9727-560ba1831702)
+
+2) This image shows the scroll bar present in all sections to allow users to see more songs
+
 ![Captura desde 2025-01-29 17-47-41](https://github.com/user-attachments/assets/1015f7c3-31cf-4f4b-900c-1253a7985d2c)
+
+3) This image shows the Similar To section
+
 ![Captura desde 2025-01-29 17-47-57](https://github.com/user-attachments/assets/5117e4cf-952e-45a3-9228-f147827a14cd)
+
+4) This image shows the Quick Picks Section
+
 ![Captura desde 2025-01-29 17-48-09](https://github.com/user-attachments/assets/d2cf7860-b7e5-4ddc-a476-4f088b4e2ca2)
+
+5) This image shows the Recommended Albums section 
+
 ![Captura desde 2025-01-29 17-48-15](https://github.com/user-attachments/assets/2be2682d-4b2a-4e9e-a9e6-87a4df0f04df)
+
+### Adding a New Playlist
+
+1) This image shows how the sidebar expands when the user clicks on the expand icon
+
 ![Captura desde 2025-01-29 17-48-47](https://github.com/user-attachments/assets/915d62aa-4f68-4eea-a998-8dbbae1c720f)
+
+2) This image shows the Add new playlist page and the fields to be filled in
+
 ![Captura desde 2025-01-29 17-49-02](https://github.com/user-attachments/assets/a5a56723-c9e7-4abd-ad30-101c8291c7e8)
+
+3) This image shows an example of a new playlist created
+
 ![Captura desde 2025-01-29 17-53-01](https://github.com/user-attachments/assets/5dd66406-15a0-4465-980a-bffba4747d59)
+
+4) Now, the new playlist appears in the sidebar component
+
 ![Captura desde 2025-01-29 17-53-29](https://github.com/user-attachments/assets/574e3069-a1b2-4751-9b73-57eacc4a5c30)
+
+### Playback Bar
+
+1) The playback bar appears when the user selects a song. This component shows the user the title, description and image of the song, it also allows users to control the playback of the songs. The image also shows the pause icon that appears on the song card and allows the user to play or pause the current song
+
 ![Captura desde 2025-01-29 17-56-03](https://github.com/user-attachments/assets/c6d39f4d-a73f-425b-bf60-c64c77b9b9bd)
+
+2) the quick pick section also displays a pause icon when playing a song from that section
+
 ![Captura desde 2025-01-29 17-57-07](https://github.com/user-attachments/assets/b9c912c7-ddcc-494e-a790-57a981e7196c)
+
+3) Pause icon displayed on the song card component
+
 ![Captura desde 2025-01-29 17-57-23](https://github.com/user-attachments/assets/f6255f0a-7f07-41a1-bdba-56ec0eb17bf9)
+
+4) This image shows the Playbar component. It allows the user to know the title, description and picture of the playlist, it also allows the user to have control of the playback of the songs. This component shows the current time, the elapsed time and the user can manipulate the time
+
 ![Captura desde 2025-01-29 17-58-04](https://github.com/user-attachments/assets/771184ca-1859-4fe4-a5de-b71e508dd6fb)
+
+5) User manipulation of song timing
+
 ![Captura desde 2025-01-29 17-59-01](https://github.com/user-attachments/assets/81703c10-c168-4338-9453-923d0df074c6)
+
+
+6) Current and elapsed time of the song
+
 ![Captura desde 2025-01-29 17-59-26](https://github.com/user-attachments/assets/e5f7956a-3f6b-4760-bbad-c70f297997f2)
+
+7) Component that show the song description
+
 ![Captura desde 2025-01-29 17-59-44](https://github.com/user-attachments/assets/7c5c9a34-0e17-486f-b1f6-84fe4839382a)
+
+8) This image shows a button that allows the user to close the playback bar
+
 ![Captura desde 2025-01-29 18-00-41](https://github.com/user-attachments/assets/52ad220f-2b04-42bd-815c-afa4b76ccc30)
+
+### Design
+
+1) I have applied styles to my website to make it responsive to different resolutions
+
 ![375550627-bf09d12b-da3d-4bdf-9bba-13f183128c3f](https://github.com/user-attachments/assets/4d08e035-4f91-4da3-ac84-afcc9eb3907d)
 
 
