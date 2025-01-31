@@ -30,7 +30,7 @@ This project is a Youtube Music clone and was done as a final certification work
 - Prop Delegation: Technique that allows to easily add or remove new functions to a component
 - Context and Providers: For this app, I have used a context and a provider to separate the song playback logic and apply it globally to my application
 
-## Project Screenshots
+## 📸 Project Screenshots
 ### Loading content:
 1) While the page fetches the songs from the Audioboom API, I have implemented a load message from my useFetch hook
 
@@ -134,7 +134,7 @@ This project is a Youtube Music clone and was done as a final certification work
 - **Offers functionalities such as play/pause, navigation between songs, fast forward/rewind, etc**
 - **Allows to display the time and to show the audio information (title, description and image) in the playback bar**
 
-## How to Use This App?
+## 💻 How to Use This App?
 1) **Clone this repository:** https://github.com/javicod92/podcast-player.git
 2) **Install dependencies:** npm install
 3) **Use the App**
